@@ -1,0 +1,197 @@
+<ion-toolbar>
+  <ion-title>
+    <img src="../../../assets/Logo_Grey.png" alt="">
+  </ion-title>
+
+  <ion-buttons slot="end">
+    <ion-button>
+      <ion-icon slot="icon-only" name="person-circle-outline"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+</ion-toolbar>
+
+<ion-content>
+  <div class="content-padding">
+    <ion-row>
+      <ion-col size="12">
+        <div class="service-hr" (click)="navigateToService('journey')">
+          <ion-thumbnail>
+            <img src="../../../assets/journey.png" alt="">
+          </ion-thumbnail>
+          <div class="service-bg" style="background-color: #66615D;"></div>
+          <div class="service-text-wrap">
+            <h6>YOUR JOURNEY STARTS HERE</h6>
+            <p>Let this curated guide to our hotel and the surrounding areas inspire experiences for you to remember.</p>
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
+    
+    <ion-row>
+      <ion-col size="12">
+        <div class="service-hr" (click)="navigateToService('nourishment')">
+          <ion-thumbnail>
+            <img src="../../../assets/nourishment.png" alt="">
+          </ion-thumbnail>
+          <div class="service-bg" style="background-color: #BEB6AF;"></div>
+          <div class="service-text-wrap">
+            <h6>TASTEFULLY NOURISHED</h6>
+            <p>Explore our authentic cuisine that celebrates local flavors and overall wellness.</p>
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
+    
+    <ion-row>
+      <ion-col size="12">
+        <div class="service-hr" (click)="navigateToService('spa')">
+          <ion-thumbnail>
+            <img src="../../../assets/spa.png" alt="">
+          </ion-thumbnail>
+          <div class="service-bg" style="background-color: #B7DDED;"></div>
+          <div class="service-text-wrap">
+            <h6>CARESSED BY WATER</h6>
+            <p>Quan Signatures are our indulgent treatments and packages that give you a unique experience, including a
+              selection with
+              local flair that are exclusive to this Quan location.</p>
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
+    
+    <ion-row>
+      <ion-col size="12">
+        <div class="service-hr" (click)="navigateToService('laundry')">
+          <ion-thumbnail>
+            <img src="../../../assets/laundry.jpg" alt="">
+          </ion-thumbnail>
+          <div class="service-bg" style="background-color: #E1BCB5;"></div>
+          <div class="service-text-wrap">
+            <h6>PROFESSIONAL LAUNDRY SERVICE</h6>
+            <p>We are proud to provide highest quality care for all your valuable garments.</p>
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
+    
+    <ion-row>
+      <ion-col size="12">
+        <div class="service-hr" (click)="navigateToService('tv-guide')">
+          <ion-thumbnail>
+            <img src="../../../assets/tv.png" alt="">
+          </ion-thumbnail>
+          <div class="service-bg" style="background-color: #BEB6AF;"></div>
+          <div class="service-text-wrap">
+            <h6>TV Channel Guide</h6>
+            <p>Guide to all TV channels available. For any assistance, please call AYS.</p>
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
+    
+    <ion-row>
+      <ion-col size="12">
+        <div class="service-hr" (click)="navigateToService('connect')">
+          <ion-thumbnail>
+            <img src="../../../assets/Connect.png" alt="">
+          </ion-thumbnail>
+          <div class="service-bg" style="background-color: #BEB6AF;"></div>
+          <div class="service-text-wrap">
+            <h6>Connect</h6>
+            <p>Internet Access and Connectivity Panel</p>
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
+    
+    <ion-row>
+      <ion-col size="12">
+        <div class="service-hr" (click)="navigateToService('conserve')">
+          <ion-thumbnail>
+            <img src="../../../assets/conserve.png" alt="">
+          </ion-thumbnail>
+          <div class="service-bg" style="background-color: #B7DDED;"></div>
+          <div class="service-text-wrap">
+            <h6>Conserve and Reuse</h6>
+            <p>At JW Marriott, we are committed to conserving water, energy and other resources. We invite you to join us in
+              these
+              efforts in our hotels and beyond.</p>
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
+  </div>
+
+  <!-- <ion-row>
+    <ion-col>
+      <div class="service-wrap" (click)="navigateToService('journey')">
+        <ion-thumbnail>
+          <img src="../../../assets/clip-1.png" alt="">
+        </ion-thumbnail>
+        <div class="thumbnail-text" style="background: #949494;">
+          <p>YOUR JOURNEY STARTS HERE</p>
+        </div>
+      </div>
+    </ion-col>
+    <ion-col>
+      <div class="service-wrap" (click)="navigateToService('nourishment')">
+        <ion-thumbnail>
+          <img src="../../../assets/clip-2.png" alt="">
+        </ion-thumbnail>
+        <div class="thumbnail-text" style="background: #8BA37E;">
+          <p>TASTEFULLY NOURISHED SAVOR by jw</p>
+        </div>
+      </div>
+    </ion-col>
+    <ion-col>
+      <div class="service-wrap" (click)="navigateToService('spa')">
+        <ion-thumbnail>
+          <img src="../../../assets/clip-3.png" alt="">
+        </ion-thumbnail>
+        <div class="thumbnail-text" style="background: #B7DDED;">
+          <p>CARESSED BY WATER QUAN SPA</p>
+        </div>
+      </div>
+    </ion-col>
+    <ion-col>
+      <div class="service-wrap" (click)="navigateToService('laundry')">
+        <ion-thumbnail>
+          <img src="../../../assets/clip-4.png" alt="">
+        </ion-thumbnail>
+        <div class="thumbnail-text" style="background: #F9BFC1;">
+          <p>PROFESSIONAL LAUNDRY SERVICE</p>
+        </div>
+      </div>
+    </ion-col>
+    <ion-col>
+      <div class="service-wrap" (click)="navigateToService('tv-guide')">
+        <ion-thumbnail>
+          <img src="../../../assets/clip-5.png" alt="">
+        </ion-thumbnail>
+        <div class="thumbnail-text" style="background: #949494;">
+          <p>TV GUIDE</p>
+        </div>
+      </div>
+    </ion-col>
+    <ion-col>
+      <div class="service-wrap" (click)="navigateToService('connect')">
+        <ion-thumbnail>
+          <img src="../../../assets/clip-6.png" alt="">
+        </ion-thumbnail>
+        <div class="thumbnail-text" style="background: #949494;">
+          <p>CONNECT</p>
+        </div>
+      </div>
+    </ion-col>
+    <ion-col>
+      <div class="service-wrap" (click)="navigateToService('conserve')">
+        <ion-thumbnail>
+          <img src="../../../assets/clip-7.png" alt="">
+        </ion-thumbnail>
+        <div class="thumbnail-text" style="background: #949494;">
+          <p>CONSERVE AND REUSE</p>
+        </div>
+      </div>
+    </ion-col>
+  </ion-row> -->
+</ion-content>

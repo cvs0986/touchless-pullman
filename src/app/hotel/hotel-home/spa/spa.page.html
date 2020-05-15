@@ -1,0 +1,35 @@
+<ion-toolbar>
+  <ion-title>
+    <img src="../../../../assets/Logo_Grey.png" alt="">
+  </ion-title>
+  <ion-buttons slot="end">
+    <ion-button>
+      <ion-icon slot="icon-only" name="person-circle-outline"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+</ion-toolbar>
+
+<ion-content>
+  <ion-row style="margin-bottom: 10px; padding: 0px 8px;">
+    <ion-col size="12">
+      <ion-thumbnail>
+        <img style="border-radius: 8px; box-shadow: 0px 0px 3px #ccc;" src="../../../../assets/spa-banner.png" alt="">
+      </ion-thumbnail>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="row-padding">
+    <ion-col size="12" class="journey-tiles" style="background-color: #BDBDBF;" (click)="spaNavigate('explore')">
+      <span class="header-txt" style="font-size: 15px; font-weight: 500; text-transform: uppercase;">Explore</span> <br>
+      <span style="font-size: 13px;">Our treatments provide a transformative experience that restores through the tranquility and purity of water.</span>
+    </ion-col>
+    <ion-col size="12" class="journey-tiles" style="background-color: #F3DBC7;" (click)="spaNavigate('spa-menu')">
+      <span class="header-txt" style="font-size: 15px; font-weight: 500; text-transform: uppercase;">Spa Menu</span> <br>
+      <span style="font-size: 13px;">Quan Spa at JW Marriott New Delhi caters to hotel guests, spa members and day spa guests.</span>
+    </ion-col>
+    <ion-col size="12" class="journey-tiles" style="background-color: #B7DDED;" (click)="spaNavigate('etiq')">
+      <span class="header-txt" style="font-size: 15px; font-weight: 500; text-transform: uppercase;">Spa ETIQUETTE</span> <br>
+      <span style="font-size: 13px;">The Quan Spa team is delighted to recommend you the best treatments smiled for your body and skin condition.</span>
+    </ion-col>
+  </ion-row>
+</ion-content>

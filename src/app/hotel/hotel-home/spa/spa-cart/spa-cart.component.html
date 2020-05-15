@@ -1,0 +1,81 @@
+<ion-toolbar>
+  <ion-title>
+    <img src="../../../../../assets/Logo_Grey.png" alt="">
+  </ion-title>
+  <ion-buttons slot="end">
+    <ion-button (click)="dismissCart()">
+      <ion-icon slot="icon-only" name="close-outline"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+</ion-toolbar>
+
+<ion-content>
+  <ion-fab vertical="bottom" horizontal="end">
+    <ion-button (click)="placedOrder()" size="small" shape="round">Continue</ion-button>
+  </ion-fab>
+
+
+  <h3 class="ion-padding-horizontal">Package Selected</h3>
+  <br>
+  <div class="package-info ion-padding-horizontal">
+    <span>{{spaItem.name}}</span><br>
+    <span>{{spaItem.time}}</span><br>
+    <span style="font-weight: 500;">&#x20B9;{{spaItem.price}}.00</span>
+  </div>
+  <br><br>
+  <div class="guest-details">
+    <div class="spa-divider"></div>
+    <br>
+    <ion-item lines="none">
+      <ion-label>Select Date</ion-label>
+      <ion-datetime value="" placeholder="Select Date"></ion-datetime>
+    </ion-item>
+    <ion-item lines="none">
+      <ion-label>
+        <div class="details">
+          <p style="font-size: 15px;">Number Of Guests</p>
+        </div>
+    
+        <div class="add-action">
+          <div class="add-item-button">
+            <ion-icon (click)="decrementQty()" class="add-item-button-left" name="remove-outline"></ion-icon>
+            {{guestQty}} <ion-icon (click)="incrementQty()" class="add-item-button-right" name="add-outline"></ion-icon>
+          </div>
+        </div>
+      </ion-label>
+    </ion-item>
+
+    <ion-item lines="none">
+      <ion-label>Select Slot</ion-label>
+      <ion-select placeholder="Slot">
+        <ion-select-option value="01">12:00AM</ion-select-option>
+        <ion-select-option value="02">01:00AM</ion-select-option>
+        <ion-select-option value="03">02:00AM</ion-select-option>
+        <ion-select-option value="04">03:00AM</ion-select-option>
+        <ion-select-option value="05">04:00AM</ion-select-option>
+        <ion-select-option value="06">05:00AM</ion-select-option>
+        <ion-select-option value="07">06:00AM</ion-select-option>
+        <ion-select-option value="08">07:00AM</ion-select-option>
+        <ion-select-option value="09">08:00AM</ion-select-option>
+        <ion-select-option value="10">09:00AM</ion-select-option>
+        <ion-select-option value="11">10:00AM</ion-select-option>
+        <ion-select-option value="12">11:00AM</ion-select-option>
+
+        <ion-select-option value="13">12:00PM</ion-select-option>
+        <ion-select-option value="14">01:00PM</ion-select-option>
+        <ion-select-option value="15">02:00PM</ion-select-option>
+        <ion-select-option value="16">03:00PM</ion-select-option>
+        <ion-select-option value="17">04:00PM</ion-select-option>
+        <ion-select-option value="18">05:00PM</ion-select-option>
+        <ion-select-option value="19">06:00PM</ion-select-option>
+        <ion-select-option value="20">07:00PM</ion-select-option>
+        <ion-select-option value="21">08:00PM</ion-select-option>
+        <ion-select-option value="22">09:00PM</ion-select-option>
+        <ion-select-option value="23">10:00PM</ion-select-option>
+        <ion-select-option value="24">11:00PM</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <br>
+    <div class="spa-divider"></div>
+  </div>
+</ion-content>

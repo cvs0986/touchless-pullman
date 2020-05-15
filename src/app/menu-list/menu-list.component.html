@@ -1,0 +1,6 @@
+<ion-list lines="none">
+  <div class="cate" *ngFor="let category of menuCategories">
+    <ion-item style="font-size: 13px;" detail="false" *ngIf="category.is_enabled == 1"  (click)="dismissPopover(category)" button>{{category.name}}
+    </ion-item>
+  </div>
+</ion-list>

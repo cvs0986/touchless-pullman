@@ -1,0 +1,101 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+ @import url('theme/font.scss');
+
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import '~@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+
+
+.searchbar-input.sc-ion-searchbar-ios {
+    padding-left: 28px;
+    padding-right: 28px;
+    padding-top: 0;
+    padding-bottom: 0;
+    border-radius: 5px !important;
+    height: 100% !important;
+    font-size: 14px !important;
+    font-weight: 400;
+    contain: strict;
+}
+
+.searchbar-input-container.sc-ion-searchbar-ios {
+    height: 30px !important;
+}
+
+.searchbar-search-icon.sc-ion-searchbar-ios {
+    margin-left: calc(50% - 60px);
+    left: 5px;
+    top: 0;
+    position: absolute;
+    width: 17px !important;
+    height: 100%;
+    contain: strict;
+}
+
+ion-title {
+    img {
+        width: 73px !important;
+    }
+}
+
+h1 {
+    --ion-font-family: 'Goatham' !important;
+    font-family: 'Goatham' !important;
+}
+
+h2 {
+    --ion-font-family: 'Goatham' !important;
+    font-family: 'Goatham' !important;
+}
+
+h3 {
+    --ion-font-family: 'Goatham' !important;
+    font-family: 'Goatham' !important;
+}
+
+h4 {
+    --ion-font-family: 'Goatham' !important;
+    font-family: 'Goatham' !important;
+}
+
+h5 {
+    --ion-font-family: 'Goatham' !important;
+    font-family: 'Goatham' !important;
+}
+
+h6 {
+    --ion-font-family: 'Goatham' !important;
+    font-family: 'Goatham' !important;
+}
+
+.header-txt {
+    --ion-font-family: 'Goatham' !important;
+    font-family: 'Goatham' !important;
+}
+
+ion-button {
+    --ion-font-family: 'Goatham' !important;
+    font-family: 'Goatham' !important;
+}

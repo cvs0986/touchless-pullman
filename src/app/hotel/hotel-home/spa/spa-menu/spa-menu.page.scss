@@ -1,0 +1,21 @@
+.spa-divider {
+  background-color: #d8d8d8;
+  height: 4px;
+  width: 30%;
+}
+
+.spa-section {
+  margin-bottom: 50px;
+}
+
+.spa-items {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin: 10px 0px;
+
+  .spa-item-details {
+    margin-top: 8px;
+  }
+}

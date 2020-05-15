@@ -1,0 +1,27 @@
+.confirmation-msg {
+  color: #fff;
+  background-image: linear-gradient(to right bottom, #0f230a, #153112, #1d3f17, #254e1d, #2e5e22);
+  padding: 20px 0px;
+  text-align: center;
+  box-shadow: 0px 5px 10px #9E9E9E;
+}
+
+.bottom-buttons {
+  position: fixed;
+  bottom: 0px;
+  left: 0;
+  right: 0;
+  z-index: 1000000;
+  text-align: right;
+}
+
+.place-order-btn {
+  background-color: #ffffff;
+  padding: 10px 16px;
+  box-shadow: 0px 0px 10px #c8c8c8;
+}
+
+ion-item {
+  --background: transparent;
+  margin-top: -12px;
+}

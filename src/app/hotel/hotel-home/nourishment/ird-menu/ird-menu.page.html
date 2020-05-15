@@ -1,0 +1,104 @@
+
+<ion-toolbar>
+  <ion-title>
+    <img src="../../../../../assets/Logo_Grey.png" alt="">
+  </ion-title>
+  <ion-buttons slot="end">
+    <ion-button>
+      <ion-icon slot="icon-only" name="person-circle-outline"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+</ion-toolbar>
+
+<ion-content>
+
+  <ion-fab vertical="bottom" horizontal="start" slot="fixed" *ngIf="isIos === true">
+    <ion-button shape="round" fill="solid" mode="md" size="small" color="primary"> Menu
+    </ion-button>
+  </ion-fab>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" *ngIf="isIos === true && itemQty !== 0">
+    <ion-button (click)="reviewOrder()" fill="solid" mode="md" size="small" shape="round" color="success"> View Cart
+      <ion-icon slot="end" name="chevron-forward-outline"></ion-icon>
+    </ion-button>
+  </ion-fab>
+
+  <ion-fab vertical="bottom" horizontal="start" slot="fixed" *ngIf="isIos === false">
+    <ion-button fill="clear" size="small" color="medium">
+      <ion-icon style="margin-right: 5px;" slot="icon-only" name="information-circle-outline"></ion-icon>
+    </ion-button>
+  </ion-fab>
+
+  <div class="bottom-buttons" *ngIf="isIos === false">
+    <ion-button fill="solid" shape="round" size="small" color="primary"
+      style="text-transform: capitalize; font-weight: 500; margin-bottom: 10px; margin-right: 16px;">
+      MENU <ion-icon style="margin-right: 5px;" slot="icon-only" size="small" name="menu-outline"></ion-icon>
+    </ion-button>
+  
+    <div class="place-order-btn ion-padding-horizontal" *ngIf="itemQty !== 0 && isIos === false">
+      <ion-button (click)="reviewOrder()" color="success" mode="md" expand="block" style="text-transform: capitalize;">
+        <ion-icon size="small" slot="end" name="caret-forward-outline"></ion-icon>
+        <small style="margin-right: 50px; font-weight: 500;">
+          {{itemQty}}
+          <span style="margin-left: 3px;">
+            <span *ngIf="itemQty === 1">ITEM</span>
+            <span *ngIf="itemQty > 1">ITEMS</span>
+          </span>
+        </small>
+        View Cart
+      </ion-button>
+    </div>
+  </div>
+
+
+
+  <ion-buttons>
+    <ion-back-button defaultHref="/hotel/tabs/hotel-home/nourishment"></ion-back-button>
+  </ion-buttons>
+  <div class="nourishment-section" *ngFor="let head of menuItems">
+    <span class="header-txt" style="font-size: 16px; font-weight: 500;">{{head.headName}}</span> <br>
+    <span style="font-size: 12px;">{{head.headDesc}}</span>
+    <br> <br>
+    <div class="nourishment-divider"></div>
+    <br> 
+    <div class="nourishment-el" *ngFor="let menu of head.headEl">
+      <div class="el-category">
+        <p><span>{{menu.categoryName}}</span></p>
+      </div>
+      <div class="toggleMenus">
+        <ion-list lines="none" mode="md" style="background: transparent;" *ngFor="let item of menu.items">
+          <ion-item style="margin-top: -15px;" mode="md" style="background: transparent;">
+            <ion-label>
+              <div class="details">
+                <h2 style="font-size: 13px; font-weight: 600; display: flex; align-items: center; white-space: pre-wrap;">
+                  {{item.name}}
+                </h2>
+                <h3 class="price">&#x20b9;{{item.price}}.00</h3>
+              </div>
+      
+              <div class="add-action">
+                <ion-button (click)="addItemInitial(item)" *ngIf="item.qty === 0" fill="outline" size="small"
+                  color="medium" style="text-transform: capitalize; font-weight: 400;">
+                  Add <ion-icon style="margin-right: 5px;" slot="icon-only" size="small" name="add-outline"></ion-icon>
+                </ion-button>
+      
+                <div class="add-item-button" *ngIf="item.qty !== 0">
+                  <ion-icon (click)="decrementQty(item)" class="add-item-button-left" name="remove-outline"></ion-icon>
+                  {{item.qty}} <ion-icon (click)="incrementQty(item)" class="add-item-button-right"
+                    name="add-outline"></ion-icon>
+                </div>
+      
+              </div>
+            </ion-label>
+          </ion-item>
+          <div class="details-text">
+            <span>{{item.ingredients}}</span> <br>
+            <span style="font-size: 12px; color: #585858; font-weight: 500;">{{item.elements}}</span>
+          </div>
+        </ion-list>
+      </div>
+    </div>
+  </div>
+
+  <br><br>
+</ion-content>

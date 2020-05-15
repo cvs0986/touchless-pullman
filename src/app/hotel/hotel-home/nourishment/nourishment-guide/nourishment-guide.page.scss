@@ -1,0 +1,38 @@
+ion-content {
+  --background: #FCFCF7;
+}
+
+.nourishment-section {
+  padding: 10px 13px;
+}
+
+.nourishment-divider {
+  width: 100%;
+  height: 6px;
+  background: #CDC3C1;
+}
+
+.el-category {
+  p {
+    width: 100%; 
+    text-align: center; 
+    border-bottom: 1px solid #CDC3C1; 
+    line-height: 0.1em;
+    margin: 10px 0 20px;
+    color: #747474;
+
+    span {
+      background:#FCFCF7; 
+      padding:0 10px; 
+    }
+  }
+}
+
+.el-description {
+  padding: 0px 5px;
+  font-size: 14px;
+}
+
+.el-name-gred {
+  margin: 30px 0px;
+}

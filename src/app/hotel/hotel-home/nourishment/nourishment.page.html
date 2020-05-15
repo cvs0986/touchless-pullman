@@ -1,0 +1,40 @@
+<ion-toolbar>
+  <ion-title>
+    <img src="../../../../assets/Logo_Grey.png" alt="">
+  </ion-title>
+  <ion-buttons slot="end">
+    <ion-button>
+      <ion-icon slot="icon-only" name="person-circle-outline"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+</ion-toolbar>
+
+<ion-content>
+  <ion-row style="padding: 0px 9px; margin-bottom: 10px;">
+    <ion-col size="12">
+      <ion-thumbnail>
+        <img src="../../../../assets/nourishment-banner.png" alt="">
+      </ion-thumbnail>
+    </ion-col>
+  </ion-row>
+  
+  <ion-row class="row-padding">
+    <ion-col size="12" class="journey-tiles" style="background-color: #BDBDBF;" (click)="nourishmentNavigation('guide')">
+      <span class="header-txt" style="font-size: 15px; font-weight: 500;">YOUR GUIDE TO NOURISHMENT</span> <br>
+      <span style="font-size: 13px;">Enjoy this introduction to essential vitamins, minerals, fats and fibers, as well as a variety of nutritious ingredients
+      to enjoy and savor.</span>
+    </ion-col>
+    <ion-col size="12" class="journey-tiles" style="background-color: #F3DBC7;" (click)="nourishmentNavigation('ird-menu')">
+      <span class="header-txt" style="font-size: 15px; font-weight: 500; text-transform: uppercase;">In-room dining menu</span> <br>
+      <span style="font-size: 13px;">Explore our authentic cuisine that celebrates local flavors and overall wellness.</span>
+    </ion-col>
+    <ion-col size="12" class="journey-tiles" style="background-color: #B7DDED;" (click)="nourishmentNavigation('refreshment-menu')">
+      <span class="header-txt" style="font-size: 15px; font-weight: 500; text-transform: uppercase;">Refreshment Menu</span> <br>
+      <span style="font-size: 13px;">Explore beverages and snacks available in your minibar.</span>
+    </ion-col>
+    <ion-col size="12" class="journey-tiles" style="background-color: #8BA37E;" (click)="nourishmentNavigation('pre-order')">
+      <span class="header-txt" style="font-size: 15px; font-weight: 500; text-transform: uppercase;">Pre-order breakfast</span> <br>
+      <span style="font-size: 13px;">Have a nourishing start. Pre-order breakfast from SAVOR by JW.</span>
+    </ion-col>
+  </ion-row>
+</ion-content>

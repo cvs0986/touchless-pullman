@@ -1,0 +1,107 @@
+.bottom-buttons {
+  position: fixed;
+  bottom: 0px;
+  left: 0;
+  right: 0;
+  z-index: 1000000;
+  text-align: right;
+}
+
+.place-order-btn {
+  background-color: #ffffff;
+  padding: 8px 16px;
+  box-shadow: 0px 0px 10px #c8c8c8;
+}
+
+.item.sc-ion-label-ios-h, .item .sc-ion-label-ios-h {
+    --color: initial;
+    display: block;
+    color: var(--color);
+    font-family: var(--ion-font-family, inherit);
+    font-size: inherit;
+    text-overflow: ellipsis;
+    white-space: pre-wrap !important;
+    overflow: hidden;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+ion-item {
+  --background: transparent;
+}
+
+.foodType {
+  margin-right: 15px;
+}
+
+.guestInfoSec {
+  background: #f6fff4;
+  padding: 5px 0px 26px;
+}
+
+.foodInput {
+  padding: 0px 10px !important;
+  border: 1px solid #e1e1e1;
+  margin-top: 15px;
+  border-radius: 5px;
+  background-color: #F5F5F5;
+}
+
+
+ion-label {
+  display: flex !important;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.details {
+  width: 78%;
+}
+
+.add-section {
+  width: 22%;
+}
+
+.add-item-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  border-width: 2px;
+  border-style: solid;
+  border-color: rgb(216, 216, 216) rgb(209, 209, 209) rgb(186, 186, 186);
+  border-image: initial;
+  border-radius: 5px;
+  align-items: center;
+  height: 2.2em;
+  font-size: 13px;
+  width: 73px;
+}
+
+.add-item-button-left {
+  background-color: darkgrey;
+  padding: 7px;
+  margin-left: -8px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  color: #fff;
+}
+
+.add-item-button-right {
+  background-color: darkgrey;
+  padding: 7px;
+  margin-right: -8px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  color: #fff;
+}
+
+.details-text {
+  padding: 0px 16px;
+  margin-top: -16px;
+  font-size: 14px;
+}
+
+.price {
+  font-weight: 500;
+  letter-spacing: .9px;
+}
