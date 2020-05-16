@@ -19,23 +19,50 @@
   </ion-row>
 
   <ion-row class="row-padding">
-    <ion-col size="12" class="journey-tiles" style="background-color: #BDBDBF;" (click)="navigateJourney('welcome')">
+    <ion-col *ngFor="let item of navigationTile" size="12" class="journey-tiles" style="background-color: #fff;" [routerLink]="[item.link]">
+      <span class="header-txt" style="font-size: 15px; font-weight: 500; text-transform: uppercase;">{{item.header}}</span> <br>
+      <!-- <span style="font-size: 13px;">We look forward to providing you with an unforgettable experience.</span> -->
+    </ion-col>
+
+    <!-- <ion-col size="12" class="journey-tiles" style="background-color: #fff;" (click)="navigateJourney('welcome')">
         <span class="header-txt" style="font-size: 15px; font-weight: 500;">WELCOME</span> <br>
-        <span style="font-size: 13px;">We look forward to providing you with an unforgettable experience.</span>
     </ion-col>
-    <ion-col size="12" class="journey-tiles" style="background-color: #F3DBC7;" (click)="navigateJourney('highlights')">
-      <span class="header-txt" style="font-size: 15px; font-weight: 500; text-transform: uppercase;">Highlights</span> <br>
-      <span style="font-size: 13px;">We invite you to savor every minute of your experience. If we can assist you in any way, please contact the Front Desk.</span>
+    <ion-col size="12" class="journey-tiles" style="background-color: #fff;" (click)="navigateJourney('highlights')">
+      <span class="header-txt" style="font-size: 15px; font-weight: 500; text-transform: uppercase;">F&B</span> <br>
     </ion-col>
-    <ion-col size="12" class="journey-tiles" style="background-color: #B7DDED;" (click)="navigateJourney('ht')">
-      <span class="header-txt" style="font-size: 15px; font-weight: 500; text-transform: uppercase;">Hotel Services</span> <br>
-      <span style="font-size: 13px;">Internet & Phone, Retail, Parking, Movies, TV, Radio, Meetings & Events, Business Services.</span>
+    <ion-col size="12" class="journey-tiles" style="background-color: #fff;" (click)="navigateJourney('ht')">
+      <span class="header-txt" style="font-size: 15px; font-weight: 500; text-transform: uppercase;">Room</span> <br>
     </ion-col>
-    <ion-col size="12" class="journey-tiles" style="background-color: #8BA37E;" (click)="navigateJourney('lc')">
-      <span class="header-txt" style="font-size: 15px; font-weight: 500; text-transform: uppercase;">Local experience</span> <br>
-      <span style="font-size: 13px;">A city of parks, gardens, historical monuments, art, music and theatre; Delhi encapsulates two very different worlds -
-      the old and the new.</span>
+    <ion-col size="12" class="journey-tiles" style="background-color: #fff;" (click)="navigateJourney('lc')">
+      <span class="header-txt" style="font-size: 15px; font-weight: 500; text-transform: uppercase;">Bathroom</span> <br>
     </ion-col>
+    <ion-col size="12" class="journey-tiles" style="background-color: #fff;" (click)="navigateJourney('lc')">
+      <span class="header-txt" style="font-size: 15px; font-weight: 500; text-transform: uppercase;">Public Area</span> <br>
+    </ion-col>
+    <ion-col size="12" class="journey-tiles" style="background-color: #fff;" (click)="navigateJourney('lc')">
+      <span class="header-txt" style="font-size: 15px; font-weight: 500; text-transform: uppercase;">Well Being</span> <br>
+      
+    </ion-col>
+    <ion-col size="12" class="journey-tiles" style="background-color: #fff;" (click)="navigateJourney('lc')">
+      <span class="header-txt" style="font-size: 15px; font-weight: 500; text-transform: uppercase;">Swimming Pool</span> <br>
+      
+    </ion-col>
+    <ion-col size="12" class="journey-tiles" style="background-color: #fff;" (click)="navigateJourney('lc')">
+      <span class="header-txt" style="font-size: 15px; font-weight: 500; text-transform: uppercase;">Meetings</span> <br>
+      
+    </ion-col>
+    <ion-col size="12" class="journey-tiles" style="background-color: #fff;" (click)="navigateJourney('lc')">
+      <span class="header-txt" style="font-size: 15px; font-weight: 500; text-transform: uppercase;">Connectivity</span> <br>
+      
+    </ion-col>
+    <ion-col size="12" class="journey-tiles" style="background-color: #fff;" (click)="navigateJourney('lc')">
+      <span class="header-txt" style="font-size: 15px; font-weight: 500; text-transform: uppercase;">Point of Interest</span> <br>
+      
+    </ion-col>
+    <ion-col size="12" class="journey-tiles" style="background-color: #fff;" (click)="navigateJourney('lc')">
+      <span class="header-txt" style="font-size: 15px; font-weight: 500; text-transform: uppercase;">Transportation</span> <br>
+      
+    </ion-col> -->
   </ion-row>
 
 </ion-content>

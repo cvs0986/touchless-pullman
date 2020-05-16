@@ -22,8 +22,8 @@ export class SpaPage implements OnInit {
       this.router.navigateByUrl('/hotel/tabs/hotel-home/spa/spa-menu');
       return false;
     }
-    if (e === 'etiq') {
-      this.router.navigateByUrl('/hotel/tabs/hotel-home/spa/spa-etiq');
+    if (e === 'spa-kids') {
+      this.router.navigateByUrl('/hotel/tabs/hotel-home/spa/spa-kids');
       return false;
     }
   }

@@ -13,194 +13,188 @@ export class IrdMenuPage implements OnInit {
 
   menuItems: any[] = [
     {
-      headName: 'ARTFULLY BLENDED',
-      // tslint:disable-next-line: max-line-length
-      headDesc: 'Looking for a refreshing start to your morning? All juices and smoothies are brimming with healthy benefits and essential nutrients to invigorate body and mind. Available all day.',
+      headName: 'European Selection',
       headEl: [
         {
-          categoryName: 'SATISFYING SMOOTHIES',
+          categoryName: 'Root, Leaf, Grains',
           items: [
             {
-              name: 'Recharge Remedy S',
-              price: 650,
+              name: 'Immune booster',
+              price: 675,
               qty: 0,
               ingredients:
-                'Pineapple, apple, banana, yoghurt and coconut water',
-              elements: 'CALCIUM  |  POTASSIUM  |  VITAMIN C',
+                'Garden greens, broccoli, berries, pickled onions, boiled chickpeas, almonds flakes in light citrus dressing',
             },
             {
-              name: 'Glow Potion S',
-              price: 650,
+              name: 'Classic Nicoise',
+              price: 795,
               ingredients:
-                'Banana, peanut butter, coco powder, chia seeds, almond milk and honey',
+                'Lettuce, olives, red radish, tomatoes, boiled eggs, French beans, baby potatoes and tuna with French mustard dressing',
               qty: 0,
-              elements: 'OMEGA 3 | POTASSIUM | ANTIOXIDANTS',
+            },
+            {
+              name: 'Food Ex signature',
+              price: 725,
+              ingredients:
+                'Low fat green apple salad with beet pickled salmon, shaved walnut and micro greens',
+              qty: 0,
+            },
+            {
+              name: 'Caesar salad',
+              price: 725,
+              ingredients:
+                'Hearts of romaine lettuce, croutons, roasted garlic parmesan dressing, grilled chicken and bacon powder',
+              qty: 0,
+            },
+            {
+              name: 'Mezze Platter',
+              price: 595,
+              ingredients:
+                'Hummus, babaganoush, tzatziki, falafel, pickle and freshly baked pita',
+              qty: 0,
             },
           ],
         },
 
         {
-          categoryName: 'REVITALIZING JUICES',
+          categoryName: 'SOUP',
           items: [
             {
-              name: 'Anti-aging Solution S C',
-              price: 600,
-              ingredients: 'Carrot, apple and spinach',
+              name: 'Minestrone',
+              price: 495,
+              ingredients:
+                'Basil flavoured fresh tomato broth, spring vegetable, cannellini beans and parmesan cheese',
               qty: 0,
-              elements: 'FIBER | IRON | VITAMIN C',
             },
             {
-              name: 'Balancing Beets S C',
-              price: 600,
-              ingredients: 'Beetroot, pineapple, carrot, ginger and basil',
+              name: 'Classic French onion soup',
+              price: 495,
+              ingredients: 'Meat consommé, sautéed onions and Gruyere cheese croutons',
               qty: 0,
-              elements: 'VITAMIN C | CALCIUM | MAGNESIUM',
-            },
-            {
-              name: 'Immunity S C',
-              price: 600,
-              ingredients: 'Apple, ginger and lemon',
-              qty: 0,
-              elements: 'VITAMIN C | FIBER | MAGNESIUM',
             },
           ],
         },
 
         {
-          categoryName: 'FRESHLY SQUEEZED JUICES',
+          categoryName: 'Burgers & Sandwiches',
           items: [
             {
-              name: 'Fruits',
-              price: 525,
-              ingredients: 'Orange/watermelon/pineapple',
+              name: 'Food Ex Club',
+              price: 795,
+              ingredients: 'Grilled chicken, Bacon, Lettuce, tomato, fried egg choice of multi grain or white bread',
               qty: 0,
-              elements: '',
             },
             {
-              name: 'Vegetables',
-              price: 525,
-              ingredients: 'Tomato/spinach/beetroot/carrot/celery/cucumber',
+              name: 'Grilled chicken and cheese sandwich',
+              price: 750,
+              ingredients: 'Ciabatta bread, roasted chicken salad, matured cheddar cheese',
               qty: 0,
-              elements: '',
+            },
+            {
+              name: 'Steak sandwich',
+              price: 795,
+              ingredients: 'Striploin, mushroom, onion & Gouda cheese in toasted sour dough bread',
+              qty: 0,
+            },
+            {
+              name: 'Grilled vegetable sandwich',
+              price: 695,
+              ingredients: 'Sliced tomatoes, grilled zucchini, bell pepper, white onions and chilli pesto',
+              qty: 0,
+            },
+            {
+              name: 'Root vegetable burger',
+              price: 695,
+              ingredients: 'Multi grain bun, tomatoes, pickled gherkins, lettuce and spicy garlic sauce',
+              qty: 0,
+            },
+            {
+              name: 'Free range chicken burger',
+              price: 750,
+              // tslint:disable-next-line: max-line-length
+              ingredients: 'Toasted sesame bun, grilled chicken patty, fried egg, melted cheese, pickled gherkins, lettuce, tomatoes and spicy garlic sauce',
+              qty: 0,
+            },
+            {
+              name: 'Hamburger',
+              price: 795,
+              ingredients: 'Ciabatta bread, roasted chicken salad, matured cheddar cheese',
+              qty: 0,
             },
           ],
         },
       ],
     },
     {
-      headName: 'BREAKFAST',
-      headDesc: '6.00am - 11.00am',
+      headName: 'Oriental Selections',
       headEl: [
         {
-          categoryName: 'A BALANCED START',
+          categoryName: 'Appetizers',
           items: [
             {
-              name: 'Seasonal Sliced Fruit Platter H C',
-              price: 600,
+              name: 'Chilly chicken dry',
+              price: 850,
               qty: 0,
-              ingredients: 'Locally sourced seasonal fruit',
-              elements: '',
+              ingredients: 'Wok fried diced chicken with home-made chili sauce, bell pepper and spring onions',
             },
             {
-              name: 'Yoghurt H C',
-              price: 385,
-              ingredients: 'Low fat, Plain, Blueberry, Banana',
+              name: 'Crispy fried chicken wings',
+              price: 795,
+              ingredients: 'Spicy fried chicken wings with sweet chili ',
               qty: 0,
-              elements: 'MAGNESIUM | CALCIUM | PHOSPHORUS | VITAMIN A',
             },
             {
-              name: 'Oatmeal H C',
-              price: 550,
-              ingredients: 'Served with brown sugar and raisins',
+              name: 'Prawn salt and pepper',
+              price: 1195,
+              ingredients: 'Crispy fried tiger prawns tossed with peppers, spring onions and smoked salt',
               qty: 0,
-              elements: 'POTASSIUM | CARBOHYDRATE | PROTEIN',
             },
             {
-              name: 'Bircher Muesli H C S',
+              name: 'Honey chili bean fish',
               price: 550,
               ingredients:
-                'Yoghurt, oats, toasted almond, grapes, orange segments and honey',
+                'Sliced fish tossed with fresh chilies, fermented black bean',
               qty: 0,
-              elements: 'CALCIUM | PHOSPHORUS',
             },
             {
-              name: 'Bircher Muesli H C S',
-              price: 550,
+              name: 'Zenan Spring rolls',
+              price: 650,
               ingredients:
-                'Yoghurt, oats, toasted almond, grapes, orange segments and honey',
+                'Vegetables and beans sprout fried rolls served with pickled chili sauce',
               qty: 0,
-              elements: 'CALCIUM | PHOSPHORUS',
             },
             {
-              name: 'Cereal Selection H C',
-              price: 500,
-              ingredients: 'Corn Flakes',
+              name: 'Crispy fried tofu',
+              price: 695,
+              ingredients: 'Thai style deep fried tofu tossed in hot basil sauce',
               qty: 0,
-              elements: 'SODIUM | POTASSIUM',
-            },
-            {
-              name: 'Lassi C',
-              price: 475,
-              ingredients: 'Plain/ Sweet/ Salted',
-              qty: 0,
-              elements: '',
-            },
-            {
-              name: 'Buttermilk C',
-              price: 475,
-              ingredients: 'Salted / masala',
-              qty: 0,
-              elements: '',
             },
           ],
         },
 
         {
-          categoryName: 'REVITALIZING JUICES',
+          categoryName: 'Main Course',
           items: [
             {
-              name: 'Anti-aging Solution S C',
-              price: 600,
-              ingredients: 'Carrot, apple and spinach',
+              name: 'Kung pao chicken',
+              price: 850,
+              ingredients: 'Stir fried diced chicken with peanuts and chilies',
               qty: 0,
-              elements: 'FIBER | IRON | VITAMIN C',
             },
             {
-              name: 'Balancing Beets S C',
-              price: 600,
-              ingredients: 'Beetroot, pineapple, carrot, ginger and basil',
+              name: 'Szechuan chicken',
+              price: 850,
+              ingredients: 'Diced chicken tossed in spicy hot and sour Szechuansauce and smoked Szechuan Pepper oil',
               qty: 0,
-              elements: 'VITAMIN C | CALCIUM | MAGNESIUM',
             },
             {
-              name: 'Immunity S C',
-              price: 600,
-              ingredients: 'Apple, ginger and lemon',
+              name: 'Wok Fried Lamb',
+              price: 995,
+              ingredients: 'Sliced lamb tossed with chili, Black bean and spring onion',
               qty: 0,
-              elements: 'VITAMIN C | FIBER | MAGNESIUM',
             },
           ],
-        },
-
-        {
-          categoryName: 'FRESHLY SQUEEZED JUICES',
-          items: [
-            {
-              name: 'Fruits',
-              price: 525,
-              ingredients: 'Orange/watermelon/pineapple',
-              qty: 0,
-              elements: '',
-            },
-            {
-              name: 'Vegetables',
-              price: 525,
-              ingredients: 'Tomato/spinach/beetroot/carrot/celery/cucumber',
-              qty: 0,
-              elements: '',
-            },
-          ],
-        },
+        }
       ],
     },
   ];
@@ -242,8 +236,8 @@ export class IrdMenuPage implements OnInit {
     localStorage.removeItem('cart-items');
     const cartItems = [];
     this.menuItems.filter((item) => {
-      item.headEl.filter(menu => {
-        menu.items.filter(menuItem => {
+      item.headEl.filter((menu) => {
+        menu.items.filter((menuItem) => {
           if (menuItem.qty !== 0) {
             cartItems.push(menuItem);
           }
@@ -253,13 +247,15 @@ export class IrdMenuPage implements OnInit {
     console.log(cartItems);
     localStorage.setItem('cart-items', JSON.stringify(cartItems));
 
-    this.modalCtrl.create({
-      component: CartComponent,
-      componentProps: {
-        cartItems: cartItems
-      }
-    }).then(modalEl => {
-      modalEl.present();
-    });
+    this.modalCtrl
+      .create({
+        component: CartComponent,
+        componentProps: {
+          cartItems: cartItems,
+        },
+      })
+      .then((modalEl) => {
+        modalEl.present();
+      });
   }
 }

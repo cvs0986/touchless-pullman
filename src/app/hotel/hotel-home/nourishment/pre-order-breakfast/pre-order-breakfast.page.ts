@@ -13,53 +13,82 @@ export class PreOrderBreakfastPage implements OnInit {
 
   menuItems: any[] = [
     {
-      categoryName: 'JUICES & SMOOTHIES',
+      categoryName: 'CONTINENTAL BREAKFAST',
       items: [
         {
-          name: 'Revitalising Juices S',
-          price: 600,
+          name: 'Baker’s Basket',
+          price: 550,
           qty: 0,
-          ingredients: '',
-          el: ''
+          ingredients: 'Danish, Croissant and Muffins or White, Brown, or Multigrain toast with preserves and butter',
+          el: '',
         },
         {
-          name: 'Satisfying Smoothies S',
-          price: 650,
+          name: 'Freshly squeezed fruit juice',
+          price: 550,
+          qty: 0,
+          ingredients: 'orange pineapple or watermelon',
+          el: '',
+        },
+        {
+          name: 'Bowl of Seasonal cut fruits',
+          price: 550,
           qty: 0,
           ingredients: '',
-          el: ''
+          el: '',
+        },
+        {
+          name: 'Choice of Cereals',
+          price: 550,
+          qty: 0,
+          ingredients: 'Corn flakes/ Wheat flakes/ Chocolate flakes/ Raggi Bites/Dry muesli with option of Full cream, skimmed or soy milk',
+          el: '',
+        },
+        {
+          name: 'Plain or Fruit yogurt',
+          price: 550,
+          qty: 0,
+          ingredients: 'Mango, blueberry, strawberry, raspberry, Banana',
+          el: '',
         },
       ],
     },
     {
-      categoryName: 'REFRESHING CHOICES',
+      categoryName: 'SIGNATURE SPECIALTY',
       items: [
         {
-          name: 'Coffee',
+          name: 'Smoked salmon Scrambled Egg',
           price: 575,
           qty: 0,
-          ingredients: '',
-          el: ''
+          ingredients: 'Multigrain Sour Doug Toast, Arugula, Beurre Noisette',
+          el: '',
         },
         {
-          name: 'Tea',
-          price: 475,
+          name: 'Classic Egg Benedict',
+          price: 575,
           qty: 0,
+          ingredients: 'Grilled homemade muffin baked with Béarnaise / Smoked ham or you may like Smoked Salmon',
+          el: '',
         },
         {
-          name: 'Hot Chocolate',
-          price: 425,
+          name: 'Shakshuka',
+          price: 495,
           qty: 0,
+          ingredients: 'Baked egg, Hearty tomato and pepper sauce / Labneh and Chilli Flakes',
+          el: '',
         },
         {
-          name: 'Still Water (750ml)',
-          price: 400,
+          name: 'Waffle',
+          price: 495,
           qty: 0,
+          ingredients: 'Whipped cream, Maple syrup / Candied Fig and Salted Caramel',
+          el: '',
         },
         {
-          name: 'Sparkling Water (750ml)',
-          price: 600,
+          name: 'Pancake',
+          price: 495,
           qty: 0,
+          ingredients: 'Whipped cream, Maple syrup / Choco chip, Blue berry compote, caramelized banana, walnut',
+          el: '',
         },
       ],
     },

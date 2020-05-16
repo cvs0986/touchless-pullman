@@ -32,7 +32,7 @@
   <div class="bottom-buttons" *ngIf="isIos === false">
     <ion-button fill="solid" shape="round" size="small" color="primary"
       style="text-transform: capitalize; font-weight: 500; margin-bottom: 10px; margin-right: 16px;">
-      MENU <ion-icon style="margin-right: 5px;" slot="icon-only" size="small" name="menu-outline"></ion-icon>
+      MENU
     </ion-button>
   
     <div class="place-order-btn ion-padding-horizontal" *ngIf="itemQty !== 0 && isIos === false">
@@ -58,7 +58,7 @@
   <div class="nourishment-section" *ngFor="let head of menuItems">
     <span class="header-txt" style="font-size: 16px; font-weight: 500;">{{head.headName}}</span> <br>
     <span style="font-size: 12px;">{{head.headDesc}}</span>
-    <br> <br>
+    <br>
     <div class="nourishment-divider"></div>
     <br> 
     <div class="nourishment-el" *ngFor="let menu of head.headEl">

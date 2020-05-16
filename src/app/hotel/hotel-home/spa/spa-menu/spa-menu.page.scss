@@ -1,3 +1,11 @@
+ion-thumbnail {
+  width: 100%;
+  height: 144px;
+  img {
+    border-radius: 8px;
+  }
+}
+
 .spa-divider {
   background-color: #d8d8d8;
   height: 4px;
@@ -13,9 +21,13 @@
   flex-direction: row;
   align-items: flex-start;
   justify-content: space-between;
-  margin: 10px 0px;
+  margin: 20px 0px;
 
   .spa-item-details {
     margin-top: 8px;
   }
+}
+
+ion-button {
+  --border-width: 0.5px;
 }

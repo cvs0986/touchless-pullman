@@ -24,16 +24,44 @@ const routes: Routes = [
                 loadChildren: './hotel-home/journey/journey-welcome/journey-welcome.module#JourneyWelcomePageModule'
               },
               {
-                path: 'journey-highlights',
+                path: 'fb',
                 loadChildren: './hotel-home/journey/journey-highlights/journey-highlights.module#JourneyHighlightsPageModule'
               },
               {
-                path: 'journey-service',
+                path: 'room',
                 loadChildren: './hotel-home/journey/journey-service/journey-service.module#JourneyServicePageModule'
               },
               {
-                path: 'journey-experience',
+                path: 'bathroom',
                 loadChildren: './hotel-home/journey/journey-experience/journey-experience.module#JourneyExperiencePageModule'
+              },
+              {
+                path: 'public-area',
+                loadChildren: './hotel-home/journey/journey-public-area/journey-public-area.module#JourneyPublicAreaPageModule'
+              },
+              {
+                path: 'well-being',
+                loadChildren: './hotel-home/journey/journey-well-being/journey-well-being.module#JourneyWellBeingPageModule'
+              },
+              {
+                path: 'swimming-pool',
+                loadChildren: './hotel-home/journey/journey-swimming-pool/journey-swimming-pool.module#JourneySwimmingPoolPageModule'
+              },
+              {
+                path: 'meetings',
+                loadChildren: './hotel-home/journey/journey-meetings/journey-meetings.module#JourneyMeetingsPageModule'
+              },
+              {
+                path: 'connectivity',
+                loadChildren: './hotel-home/journey/journey-connectivity/journey-connectivity.module#JourneyConnectivityPageModule'
+              },
+              {
+                path: 'poi',
+                loadChildren: './hotel-home/journey/journey-poi/journey-poi.module#JourneyPoiPageModule'
+              },
+              {
+                path: 'transportation',
+                loadChildren: './hotel-home/journey/journey-transportation/journey-transportation.module#JourneyTransportationPageModule'
               },
             ]
           },
@@ -80,7 +108,7 @@ const routes: Routes = [
                 loadChildren: './hotel-home/spa/spa-menu/spa-menu.module#SpaMenuPageModule'
               },
               {
-                path: 'spa-etiq',
+                path: 'spa-kids',
                 loadChildren: './hotel-home/spa/spa-etiq/spa-etiq.module#SpaEtiqPageModule'
               }
             ]
