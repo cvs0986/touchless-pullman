@@ -1,10 +1,21 @@
-.header{
-padding: 40px 20px;
-background-color: #E1BCB5;
+ion-thumbnail {
+  width: 100%;
+  height: 144px;
+
+  img {
+    border-radius: 8px;
+  }
 }
-.headerText{color: #fff;}
-.bodyContent{
-background-color: #fcfcf7;
-padding: 40px 20px;
+
+.row-padding {
+  padding: 0px 13px;
+
+  .journey-tiles {
+    padding: 10px 12px;
+    border-radius: 8px;
+    box-shadow: 0px 3px 6px #ebebeb;
+    color: #525252;
+    margin-bottom: 10px;
+    height: 70px;
+  }
 }
-.connectSpan{font-size: 18px;font-weight: 400;}

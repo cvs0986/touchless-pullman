@@ -39,8 +39,8 @@ export class HotelHomePage implements OnInit {
       this.router.navigateByUrl('/hotel/tabs/hotel-home/tv-guide');
       return false;
     }
-    if (e === 'laundry') {
-      this.router.navigateByUrl('/hotel/tabs/hotel-home/laundry');
+    if (e === 'irs') {
+      this.router.navigateByUrl('/hotel/tabs/hotel-home/irs');
       return false;
     }
   }

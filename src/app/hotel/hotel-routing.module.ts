@@ -126,8 +126,13 @@ const routes: Routes = [
             loadChildren: './hotel-home/connect/connect.module#ConnectPageModule',
           },
           {
-            path: 'laundry',
-            loadChildren: './hotel-home/laundry-service/laundry-service.module#LaundryServicePageModule',
+            path: 'irs',
+            children: [
+              { path: '', loadChildren: './hotel-home/laundry-service/laundry-service.module#LaundryServicePageModule'},
+              { path: 'irs-tv', loadChildren: './hotel-home/laundry-service/irs-tv/irs-tv.module#IrsTvPageModule'},
+              { path: 'irs-pillow', loadChildren: './hotel-home/laundry-service/irs-pillow/irs-pillow.module#IrsPillowPageModule'},
+              { path: 'irs-laundry', loadChildren: './hotel-home/laundry-service/irs-laundry/irs-laundry.module#IrsLaundryPageModule'}
+            ]
           },
         ],
       },
