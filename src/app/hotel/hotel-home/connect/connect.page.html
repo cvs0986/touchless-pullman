@@ -17,22 +17,25 @@
   <ion-row style="padding: 0px 9px; margin-bottom: 10px;">
     <ion-col size="12">
       <ion-thumbnail>
-        <img src="../../../../assets/test.jpg" alt="">
+        <img src="../../../../assets/connect.jpg" alt="">
       </ion-thumbnail>
     </ion-col>
   </ion-row>
   
   <ion-row class="row-padding">
     <ion-col size="12" class="journey-tiles">
-      <span class="header-txt" style="font-size: 15px; font-weight: 500; text-transform: uppercase;">Baggage pick up</span> <br>
+      <!-- <span class="header-txt" style="font-size: 15px; font-weight: 500; text-transform: uppercase;">Baggage pick up</span> <br> -->
+      <ion-button expand="block" (click)="baggagePickup()" color="primary">Baggage pick up</ion-button>
     </ion-col>
     <ion-col size="12" class="journey-tiles">
-      <span class="header-txt" style="font-size: 15px; font-weight: 500; text-transform: uppercase;">Prepare my check out</span>
-      <br>
+      <!-- <span class="header-txt" style="font-size: 15px; font-weight: 500; text-transform: uppercase;">Prepare my check out</span>
+      <br> -->
+      <ion-button expand="block" (click)="checkout()" color="success">Prepare my check out</ion-button>
     </ion-col>
     <ion-col size="12" class="journey-tiles">
-      <span class="header-txt" style="font-size: 15px; font-weight: 500; text-transform: uppercase;">Any additional request</span>
-      <br>
+      <!-- <span class="header-txt" style="font-size: 15px; font-weight: 500; text-transform: uppercase;">Any additional request</span>
+      <br> -->
+      <ion-button expand="block" (click)="request()" color="warning">Any additional request</ion-button>
     </ion-col>
   </ion-row>
 </ion-content>

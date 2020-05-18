@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { BookLaundryComponent } from '../book-laundry/book-laundry.component';
+import { ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-irs-laundry',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IrsLaundryPage implements OnInit {
 
-  constructor() { }
+  constructor(private modalCtrl: ModalController) { }
 
   ngOnInit() {
+  }
+
+  bookLaundry() {
+    this.modalCtrl.create({
+      component: BookLaundryComponent,
+    }).then(modalEl => {
+      modalEl.present();
+    });
   }
 
 }
