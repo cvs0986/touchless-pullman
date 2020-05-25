@@ -14,29 +14,31 @@
   <div class="content-padding">
     <ion-row>
       <ion-col size="12">
-        <div class="service-hr" (click)="navigateToService('journey')">
-          <ion-thumbnail>
-            <img src="../../../assets/room-directory-banner.png" alt="">
-          </ion-thumbnail>
-          <div class="service-bg" style="background-color: #DFB97A;"></div>
-          <div class="service-text-wrap">
-            <h6>ROOM DIRECTORY</h6>
-            <p>A hotel should be more than just a place to stay and relax.</p>
-          </div>
-        </div>
-      </ion-col>
-    </ion-row>
-    
-    <ion-row>
-      <ion-col size="12">
         <div class="service-hr" (click)="navigateToService('nourishment')">
           <ion-thumbnail>
             <img src="../../../assets/nourishment.png" alt="">
           </ion-thumbnail>
-          <div class="service-bg" style="background-color: #8F3247"></div>
+          <div class="service-bg"
+            style="background-image: linear-gradient(to right bottom, #77406f, #a1546d, #be706a, #ce936e, #d4b87e);"></div>
           <div class="service-text-wrap">
-            <h6>DINING</h6>
+            <h6>In-room wine and dine</h6>
             <p>Pre Order your breakfast / In Room Dining / Wine and Beverage / In Room Refreshment Centre</p>
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="12">
+        <div class="service-hr" (click)="navigateToService('irs')">
+          <ion-thumbnail>
+            <img src="../../../assets/irs.jpg" alt="">
+          </ion-thumbnail>
+          <div class="service-bg"
+            style="background-image: linear-gradient(to right bottom, #77406f, #a1546d, #be706a, #ce936e, #d4b87e);"></div>
+          <div class="service-text-wrap">
+            <h6>IN-ROOM SERVICES</h6>
+            <!-- <p>We are proud to provide highest quality care for all your valuable garments.</p> -->
           </div>
         </div>
       </ion-col>
@@ -48,24 +50,9 @@
           <ion-thumbnail>
             <img src="../../../assets/spa-banner.png" alt="">
           </ion-thumbnail>
-          <div class="service-bg" style="background-color: #3A8590;"></div>
+          <div class="service-bg" style="background-image: linear-gradient(to right bottom, #77406f, #a1546d, #be706a, #ce936e, #d4b87e);"></div>
           <div class="service-text-wrap">
             <h6>WOO SPA AND SALON</h6>
-          </div>
-        </div>
-      </ion-col>
-    </ion-row>
-    
-    <ion-row>
-      <ion-col size="12">
-        <div class="service-hr" (click)="navigateToService('irs')">
-          <ion-thumbnail>
-            <img src="../../../assets/irs.jpg" alt="">
-          </ion-thumbnail>
-          <div class="service-bg" style="background-color: #3E3D40;"></div>
-          <div class="service-text-wrap">
-            <h6>IN ROOM SERVICES</h6>
-            <!-- <p>We are proud to provide highest quality care for all your valuable garments.</p> -->
           </div>
         </div>
       </ion-col>
@@ -91,9 +78,9 @@
           <ion-thumbnail>
             <img src="../../../assets/connect.jpg" alt="">
           </ion-thumbnail>
-          <div class="service-bg" style="background-color: #3E3D40;"></div>
+          <div class="service-bg" style="background-image: linear-gradient(to right bottom, #77406f, #a1546d, #be706a, #ce936e, #d4b87e);"></div>
           <div class="service-text-wrap">
-            <h6>Connect services</h6>
+            <h6>Place your requests</h6>
             <!-- <p>Internet Access and Connectivity Panel</p> -->
           </div>
         </div>
@@ -106,7 +93,7 @@
           <ion-thumbnail>
             <img src="../../../assets/dining.jpg" alt="">
           </ion-thumbnail>
-          <div class="service-bg" style="background-color: #2C6A79;"></div>
+          <div class="service-bg" style="background-image: linear-gradient(to right bottom, #77406f, #a1546d, #be706a, #ce936e, #d4b87e);"></div>
           <div class="service-text-wrap">
             <h6>Explore our Dining Venues and Bars</h6>
           </div>
@@ -116,13 +103,13 @@
 
     <ion-row>
       <ion-col size="12">
-        <div class="service-hr">
+        <div class="service-hr" (click)="shareFeedback()">
           <ion-thumbnail>
-            <img src="../../../assets/pling 1.jpg" alt="">
+            <img src="../../../assets/conserve.png" alt="">
           </ion-thumbnail>
-          <div class="service-bg" style="background-color: #DFB97A;"></div>
+          <div class="service-bg" style="background-image: linear-gradient(to right bottom, #77406f, #a1546d, #be706a, #ce936e, #d4b87e);"></div>
           <div class="service-text-wrap">
-            <h6>Accor Live Limitless</h6>
+            <h6>Share your feedback</h6>
           </div>
         </div>
       </ion-col>
@@ -132,15 +119,50 @@
       <ion-col size="12">
         <div class="service-hr">
           <ion-thumbnail>
-            <img src="../../../assets/conserve.png" alt="">
+            <img
+              src="../../../assets/accor-live.png"
+              alt="">
           </ion-thumbnail>
-          <div class="service-bg" style="background-color: #4CAF50;"></div>
+          <div class="service-bg" style="background-image: linear-gradient(to right bottom, #77406f, #a1546d, #be706a, #ce936e, #d4b87e);"></div>
           <div class="service-text-wrap">
-            <h6>Share your feedback</h6>
+            <!-- <h6>Accor Live Limitless</h6> -->
           </div>
         </div>
       </ion-col>
     </ion-row>
+
+    <ion-row>
+      <ion-col size="12">
+        <div class="service-hr">
+          <ion-thumbnail>
+            <img src="../../../assets/room-directory-banner.png" alt="">
+          </ion-thumbnail>
+          <div class="service-bg"
+            style="background-image: linear-gradient(to right bottom, #77406f, #a1546d, #be706a, #ce936e, #d4b87e);"></div>
+          <div class="service-text-wrap">
+            <h6>Meet/play</h6>
+            <!-- <p>A hotel should be more than just a place to stay and relax.</p> -->
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="12">
+        <div class="service-hr" (click)="navigateToService('journey')">
+          <ion-thumbnail>
+            <img src="../../../assets/room-directory-banner.png" alt="">
+          </ion-thumbnail>
+          <div class="service-bg"
+            style="background-image: linear-gradient(to right bottom, #77406f, #a1546d, #be706a, #ce936e, #d4b87e);"></div>
+          <div class="service-text-wrap">
+            <h6>ROOM DIRECTORY</h6>
+            <p>A hotel should be more than just a place to stay and relax.</p>
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
+
   </div>
 
   <!-- <ion-row>

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController, Platform } from '@ionic/angular';
 import { CartComponent } from 'src/app/hotel/cart/cart.component';
+import { HotelApiService } from 'src/app/hotel/hotel-api.service';
+import { ItemAddOnComponent } from './item-add-on/item-add-on.component';
 
 @Component({
   selector: 'app-ird-menu',
@@ -10,6 +12,8 @@ import { CartComponent } from 'src/app/hotel/cart/cart.component';
 export class IrdMenuPage implements OnInit {
   itemQty = 0;
   isIos: boolean;
+  menuItemsApi: any = [];
+  selectedItems: any[] = [];
 
   menuItems: any[] = [
     {
@@ -199,63 +203,209 @@ export class IrdMenuPage implements OnInit {
     },
   ];
 
-  constructor(private modalCtrl: ModalController, private platform: Platform) {}
+  constructor(
+    private modalCtrl: ModalController,
+    private platform: Platform,
+    private hotelApi: HotelApiService
+  ) {}
 
   ngOnInit() {
     this.isIos = this.platform.is('ios');
     console.log(this.isIos);
+    this.hotelApi.getMenus('N1loWW9Sc3JKbjJUMEZNdmpERGVrM3N6b3N5ZjN3aWZCTFlHRjlGZFFVZz0=').subscribe(
+      (resp) => {
+        this.menuItemsApi = resp.body.data;
+        this.menuItemsApi.categories.filter(category => {
+          category.sub_categories.filter(subCategory => {
+            let add_ons: any;
+            add_ons = subCategory.items.map((item) => {
+              let o = Object.assign({}, item);
+              o.addons = [];
+              return o;
+            });
+            subCategory.items = add_ons;
+          });
+          if (category.without_sub_category_items.length !== 0) {
+            let add_ons: any;
+            add_ons = category.without_sub_category_items.map(item => {
+              let o = Object.assign({}, item);
+              o.addons = [];
+              return o;
+            });
+            category.without_sub_category_items = add_ons;
+          }
+        });
+        console.log(this.menuItemsApi);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
 
   addItemInitial(menuItem) {
-    menuItem.qty += 1;
+    if (menuItem.sub_addons.length !== 0) {
+      menuItem.count += 1;
+      menuItem.sub_addons.filter(item => {
+        if (item.type === 'single_select') {
+          let add_ons: any;
+          add_ons = item.addons.map((el) => {
+            let o = Object.assign({}, el);
+            o.selected = null;
+            return o;
+          });
+          item.addons = add_ons;
+        } else if (item.type === 'multi_select') {
+          let add_ons: any;
+          add_ons = item.addons.map((el) => {
+            let o = Object.assign({}, el);
+            o.isSelected = false;
+            return o;
+          });
+          item.addons = add_ons;
+        }
+      });
+      this.modalCtrl.create({
+        component: ItemAddOnComponent,
+        componentProps: {
+          itemAddon: menuItem
+        },
+        backdropDismiss: false,
+        cssClass: 'my-custom-modal-css'
+      }).then(modalEl => {
+        modalEl.present();
+        modalEl.onDidDismiss().then(dismissEl => {
+          if (dismissEl.data === undefined) {
+            menuItem.count = 0;
+            return false;
+          }
+          if (dismissEl.data.dismissed === 'close-btn') {
+            this.itemQty += dismissEl.data.totalQty;
+            this.selectedItems.push(dismissEl.data.duplicateItem);
+          }
+          console.log(menuItem, this.selectedItems);
+        });
+      });
+      console.log(this.selectedItems);
+      return false;
+    }
+    menuItem.count += 1;
+    this.selectedItems.push(menuItem);
     this.itemQty += 1;
-    console.log(menuItem.qty + 1, menuItem, this.itemQty);
+    console.log(menuItem.count + 1, menuItem, this.itemQty, this.selectedItems);
   }
 
-  incrementQty(item) {
-    item.qty += 1;
+  incrementQty(menuItem) {
+    if (menuItem.addons.length !== 0) {
+      menuItem.count += 1;
+      menuItem.addons = [];
+      menuItem.sub_addons.filter((item) => {
+              if (item.type === 'single_select') {
+                let add_ons: any;
+                add_ons = item.addons.map((el) => {
+                  let o = Object.assign({}, el);
+                  o.selected = null;
+                  return o;
+                });
+                item.addons = add_ons;
+              } else if (item.type === 'multi_select') {
+                let add_ons: any;
+                add_ons = item.addons.map((el) => {
+                  let o = Object.assign({}, el);
+                  o.isSelected = false;
+                  return o;
+                });
+                item.addons = add_ons;
+              }
+            });
+      this.modalCtrl
+              .create({
+                component: ItemAddOnComponent,
+                componentProps: {
+                  itemAddon: menuItem,
+                  isRepeat: true
+                },
+                backdropDismiss: false,
+                cssClass: 'my-custom-modal-css',
+              })
+              .then((modalEl) => {
+                modalEl.present();
+                modalEl.onDidDismiss().then((dismissEl) => {
+                  if (dismissEl.data === undefined) {
+                    menuItem.count -= 1;
+                    return false;
+                  }
+                  if (dismissEl.data.dismissed === 'close-btn') {
+                    this.itemQty += dismissEl.data.totalQty;
+                    dismissEl.data.duplicateItem.count = 1;
+                    this.selectedItems.push(dismissEl.data.duplicateItem);
+                    console.log(this.selectedItems);
+                  }
+                  console.log(menuItem);
+                });
+              });
+      return false;
+    }
+    const selectedIndex = this.selectedItems.indexOf(menuItem);
+    this.selectedItems[selectedIndex].count += 1;
+    this.selectedItems[selectedIndex].count -= 1;
+    menuItem.count += 1;
     this.itemQty += 1;
-    console.log(item.qty + 1, item, this.itemQty);
+    console.log(menuItem.count + 1, menuItem, this.itemQty, this.selectedItems);
   }
 
   // decrements item
 
   decrementQty(item) {
-    if (item.qty - 1 < 1) {
-      item.qty = 0;
+    if (item.count - 1 < 1) {
+      item.count = 0;
+      item.addons = [];
       this.itemQty -= 1;
-      console.log(item.qty, item, this.itemQty);
+      if (this.itemQty < 1) {
+        this.selectedItems = [];
+      }
+      console.log(item.count, item, this.itemQty, this.selectedItems);
     } else {
-      item.qty -= 1;
+      item.count -= 1;
       this.itemQty -= 1;
-      console.log(item.qty, item, this.itemQty);
+      this.selectedItems.splice(this.selectedItems.indexOf(item), 1);
+      console.log(item.count, item, this.itemQty, this.selectedItems);
     }
   }
 
   reviewOrder() {
     localStorage.removeItem('cart-items');
     const cartItems = [];
-    this.menuItems.filter((item) => {
-      item.headEl.filter((menu) => {
-        menu.items.filter((menuItem) => {
-          if (menuItem.qty !== 0) {
-            cartItems.push(menuItem);
+    this.menuItemsApi.categories.filter(item => {
+      item.sub_categories.filter(item => {
+        item.items.filter(item => {
+          if (item.count !== 0) {
+            cartItems.push(item);
           }
         });
+      });
+      item.without_sub_category_items.filter(item => {
+        if (item.count !== 0) {
+          cartItems.push(item);
+        }
       });
     });
     console.log(cartItems);
     localStorage.setItem('cart-items', JSON.stringify(cartItems));
 
-    this.modalCtrl
-      .create({
-        component: CartComponent,
-        componentProps: {
-          cartItems: cartItems,
-        },
-      })
-      .then((modalEl) => {
-        modalEl.present();
+    this.modalCtrl.create({
+      component: CartComponent,
+      componentProps: {
+        cartItems: this.selectedItems,
+        itemQty: this.itemQty
+      }
+    }).then(modalEl => {
+      modalEl.present();
+      modalEl.onDidDismiss().then(dismissEl => {
+        if (dismissEl.data.dismissed === 'closed') {
+            this.itemQty = dismissEl.data.totalQty;
+          }
       });
+    });
   }
 }

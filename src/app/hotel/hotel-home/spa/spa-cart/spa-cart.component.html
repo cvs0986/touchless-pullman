@@ -28,7 +28,7 @@
     <br>
     <ion-item lines="none">
       <ion-label>Select Date</ion-label>
-      <ion-datetime value="" placeholder="Select Date"></ion-datetime>
+      <ion-datetime value="" pickerFormat="DD MMMM YYYY" [(ngModel)]="date" placeholder="Select Date"></ion-datetime>
     </ion-item>
     <ion-item lines="none">
       <ion-label>
@@ -46,34 +46,8 @@
     </ion-item>
 
     <ion-item lines="none">
-      <ion-label>Select Slot</ion-label>
-      <ion-select placeholder="Slot">
-        <ion-select-option value="01">12:00AM</ion-select-option>
-        <ion-select-option value="02">01:00AM</ion-select-option>
-        <ion-select-option value="03">02:00AM</ion-select-option>
-        <ion-select-option value="04">03:00AM</ion-select-option>
-        <ion-select-option value="05">04:00AM</ion-select-option>
-        <ion-select-option value="06">05:00AM</ion-select-option>
-        <ion-select-option value="07">06:00AM</ion-select-option>
-        <ion-select-option value="08">07:00AM</ion-select-option>
-        <ion-select-option value="09">08:00AM</ion-select-option>
-        <ion-select-option value="10">09:00AM</ion-select-option>
-        <ion-select-option value="11">10:00AM</ion-select-option>
-        <ion-select-option value="12">11:00AM</ion-select-option>
-
-        <ion-select-option value="13">12:00PM</ion-select-option>
-        <ion-select-option value="14">01:00PM</ion-select-option>
-        <ion-select-option value="15">02:00PM</ion-select-option>
-        <ion-select-option value="16">03:00PM</ion-select-option>
-        <ion-select-option value="17">04:00PM</ion-select-option>
-        <ion-select-option value="18">05:00PM</ion-select-option>
-        <ion-select-option value="19">06:00PM</ion-select-option>
-        <ion-select-option value="20">07:00PM</ion-select-option>
-        <ion-select-option value="21">08:00PM</ion-select-option>
-        <ion-select-option value="22">09:00PM</ion-select-option>
-        <ion-select-option value="23">10:00PM</ion-select-option>
-        <ion-select-option value="24">11:00PM</ion-select-option>
-      </ion-select>
+      <ion-label>Select Time</ion-label>
+      <ion-datetime [(ngModel)]="time" display-format="h:mm A" picker-format="h:mm A" placeholder="Select Time"></ion-datetime>
     </ion-item>
     <br>
     <div class="spa-divider"></div>

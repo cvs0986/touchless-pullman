@@ -14,6 +14,10 @@
     <ion-back-button defaultHref="/hotel/tabs/hotel-home"></ion-back-button>
   </ion-buttons>
 
+  <ion-fab vertical="bottom" horizontal="end">
+    <ion-button (click)="continuePlaceRequest()" size="small" shape="round">CONTINUE</ion-button>
+  </ion-fab>
+
   <ion-row style="padding: 0px 9px; margin-bottom: 10px;">
     <ion-col size="12">
       <ion-thumbnail>
@@ -21,21 +25,28 @@
       </ion-thumbnail>
     </ion-col>
   </ion-row>
+
+  <ion-list>
+    <ion-item *ngFor="let request of requestLists" (ionChange)="requestChange(request)">
+      <ion-label>{{request.name}}</ion-label>
+      <ion-checkbox slot="start" [(ngModel)]="request.isChecked"></ion-checkbox>
+    </ion-item>
+  </ion-list>
+
+  <div class="additional-request ion-padding-horizontal" *ngIf="showAdditionalRequest">
+    <h6 style="color: #9e9e9e;">Your Request</h6>
+    <p>{{additionalRequest}}</p>
+  </div>
   
-  <ion-row class="row-padding">
+  <!-- <ion-row class="row-padding">
     <ion-col size="12" class="journey-tiles">
-      <!-- <span class="header-txt" style="font-size: 15px; font-weight: 500; text-transform: uppercase;">Baggage pick up</span> <br> -->
       <ion-button expand="block" (click)="baggagePickup()" color="primary">Baggage pick up</ion-button>
     </ion-col>
     <ion-col size="12" class="journey-tiles">
-      <!-- <span class="header-txt" style="font-size: 15px; font-weight: 500; text-transform: uppercase;">Prepare my check out</span>
-      <br> -->
       <ion-button expand="block" (click)="checkout()" color="success">Prepare my check out</ion-button>
     </ion-col>
     <ion-col size="12" class="journey-tiles">
-      <!-- <span class="header-txt" style="font-size: 15px; font-weight: 500; text-transform: uppercase;">Any additional request</span>
-      <br> -->
       <ion-button expand="block" (click)="request()" color="warning">Any additional request</ion-button>
     </ion-col>
-  </ion-row>
+  </ion-row> -->
 </ion-content>

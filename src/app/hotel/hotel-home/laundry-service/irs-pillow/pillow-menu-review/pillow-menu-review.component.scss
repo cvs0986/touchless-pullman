@@ -1,0 +1,14 @@
+.bottom-buttons {
+  position: fixed;
+  bottom: 0px;
+  left: 0;
+  right: 0;
+  z-index: 1000000;
+  text-align: right;
+}
+
+.place-order-btn {
+  background-color: #ffffff;
+  padding: 10px 16px;
+  box-shadow: 0px 0px 10px #c8c8c8;
+}

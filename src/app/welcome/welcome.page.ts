@@ -47,6 +47,12 @@ export class WelcomePage implements OnInit {
     });
   }
 
+  ionViewDidEnter() {
+    setTimeout(() => {
+      this.redirectToHome();
+    }, 1000);
+  }
+
   takeAway() {
     localStorage.removeItem('orderType');
     localStorage.setItem('orderType', 'take-away');

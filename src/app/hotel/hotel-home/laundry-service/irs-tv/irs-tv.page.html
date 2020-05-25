@@ -13,4 +13,38 @@
   <ion-buttons>
     <ion-back-button defaultHref="/hotel/tabs/hotel-home/irs"></ion-back-button>
   </ion-buttons>
+
+  <ion-row style="padding: 0px 9px; margin-bottom: 10px;">
+    <ion-col size="12">
+      <ion-thumbnail>
+        <img src="../../../../../assets/linen-bed.jpg" alt="">
+      </ion-thumbnail>
+
+      <div class="content">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit esse delectus repudiandae veniam, similique explicabo,
+          et aliquid ad quidem voluptas sint temporibus maxime consectetur.</p>
+      </div>
+      <div class="action">
+        <ion-button (click)="changeLinen()" style="text-transform: none;" fill="outline" color="primary">Change bed linen</ion-button>
+      </div>
+    </ion-col>
+  </ion-row>
+
+
+  <ion-row style="padding: 0px 9px; margin-bottom: 10px;">
+    <ion-col size="12">
+      <ion-thumbnail>
+        <img src="../../../../../assets/towel.jpg" alt="">
+      </ion-thumbnail>
+  
+      <div class="content">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit esse delectus repudiandae veniam, similique
+          explicabo,
+          et aliquid ad quidem voluptas sint temporibus maxime consectetur.</p>
+      </div>
+      <div class="action">
+        <ion-button style="text-transform: none;" (click)="changeTowels()" fill="outline" color="primary">Change towels</ion-button>
+      </div>
+    </ion-col>
+  </ion-row>
 </ion-content>

@@ -99,3 +99,10 @@ ion-button {
     --ion-font-family: 'FuturaHeader' !important;
     font-family: 'FuturaHeader' !important;
 }
+
+.my-custom-modal-css .modal-wrapper {
+   height: 80%;
+   top: 20%;
+   position: absolute; 
+   display: block;  
+}

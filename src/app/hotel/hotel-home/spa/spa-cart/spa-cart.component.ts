@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ModalController } from '@ionic/angular';
+import { ModalController, ToastController } from '@ionic/angular';
 import { Router } from '@angular/router';
 
 @Component({
@@ -10,8 +10,10 @@ import { Router } from '@angular/router';
 export class SpaCartComponent implements OnInit {
   @Input() spaItem;
   guestQty = 0;
+  date;
+  time;
 
-  constructor(private modalCtrl: ModalController, private router: Router) {}
+  constructor(private modalCtrl: ModalController, private router: Router, private toastCtrl: ToastController) {}
 
   ngOnInit() {
     console.log(this.spaItem);
@@ -36,7 +38,30 @@ export class SpaCartComponent implements OnInit {
   }
 
   placedOrder() {
+    const data = {
+      date: new Date(this.date).toDateString(),
+      time: new Date(this.time).toLocaleTimeString(),
+      guest: this.guestQty
+    };
+    console.log(data);
     this.dismissCart();
-    this.router.navigateByUrl('/confirmation');
+    this.toastCtrl.create({
+      header: 'Thank you!',
+      message: 'Your request has been received. You will receive a confirmation call from our team shortly.',
+      keyboardClose: true,
+      color: 'success',
+      position: 'bottom',
+      buttons: [
+        {
+          text: 'OKAY',
+          role: 'cancel',
+          handler: () => {
+            // this.router.navigateByUrl('/hotel/tabs/hotel-home');
+          }
+        }
+      ]
+    }).then(toastEl => {
+      toastEl.present();
+    });
   }
 }

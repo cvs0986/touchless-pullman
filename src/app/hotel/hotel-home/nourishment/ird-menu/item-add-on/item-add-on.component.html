@@ -1,0 +1,89 @@
+<ion-toolbar>
+  <ion-title>
+    <h5>{{itemAddon.name}}</h5>
+  </ion-title>
+  <ion-buttons slot="end">
+    <ion-button (click)="dismissAddon()">
+      <ion-icon slot="icon-only" name="close-outline"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+</ion-toolbar>
+
+<ion-content class="ion-padding-horizontal">
+  <div class="bottom-buttons">
+    <div class="place-order-btn ion-padding-horizontal">
+      <ion-row>
+        <ion-col size="6">
+          <!-- <div class="add-item-button">
+            <ion-icon (click)="decrementQty(itemAddon)" class="add-item-button-left" name="remove-outline"></ion-icon>
+            {{itemAddon.count}} <ion-icon (click)="incrementQty(itemAddon)" class="add-item-button-right" name="add-outline">
+            </ion-icon>
+          </div> -->
+        </ion-col>
+        <ion-col size="6">
+          <ion-button color="success" mode="md" expand="block" style="text-transform: capitalize;"
+            (click)="addAddOns()">
+            <ion-icon size="small" slot="end" name="caret-forward-outline"></ion-icon>
+            ADD
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </div>
+  </div>
+
+
+  <!-- <ion-list *ngFor="let sub of itemAddon.sub_addons">
+    <div class="" *ngIf="sub.type === 'multi_select'">
+      <h5 style="font-size: 16px;">{{sub.name}}</h5>
+      <small style="letter-spacing: 1px;">Select a minimum of {{sub.min_addon_per_order}}
+        and a maximum of {{sub.max_addon_per_order}}</small>
+      <ion-item *ngFor="let item of sub.addons" lines="none">
+        <ion-label style="font-size: 14px;">{{item.name}}</ion-label>
+        <ion-checkbox color="primary" (ionChange)="multiSelect(item, sub.max_addon_per_order, sub.min_addon_per_order)" [(ngModel)]="item.isSelected" slot="start"></ion-checkbox>
+      </ion-item>
+    </div>
+  </ion-list>
+
+  <div class="single-type" *ngFor="let sub of itemAddon.sub_addons">
+    <ion-list>
+      <div class="" *ngIf="sub.type === 'single_select'">
+        <h5>{{sub.name}}</h5>
+        <ion-radio-group [(ngModel)]="selectedRadio" (ionChange)="radioSelect($event, sub.addons)">
+          <ion-item *ngFor="let item of sub.addons" lines="none">
+            <ion-label style="font-size: 14px;">{{item.name}}</ion-label>
+            <ion-radio slot="start" (ionFocus)="radioChange(sub, $event)" value="{{item.id}}"></ion-radio>
+          </ion-item>
+        </ion-radio-group>
+      </div>
+    </ion-list>
+  </div> -->
+
+  <div class="sub-addons" *ngFor="let sub of itemAddon.sub_addons">
+    <ion-list *ngIf="sub.type === 'multi_select'">
+      <h5 style="font-size: 16px;">{{sub.name}}</h5>
+      <small style="letter-spacing: 1px;">Select a minimum of {{sub.min_addon_per_order}}
+        and a maximum of {{sub.max_addon_per_order}}</small>
+      <ion-item *ngFor="let item of sub.addons" lines="none">
+        <ion-label style="font-size: 14px;">{{item.name}}</ion-label>
+        <ion-checkbox color="primary" (ionChange)="multiSelect(item, sub.max_addon_per_order, sub.min_addon_per_order)"
+          [(ngModel)]="item.isSelected" slot="start"></ion-checkbox>
+      </ion-item>
+    </ion-list>
+
+    <ion-list *ngIf="sub.type === 'single_select'">
+      <ion-radio-group (ionChange)="radioSelect($event, sub.addons, sub)">
+        <ion-list-header>
+          <ion-label>
+            {{sub.name}}
+          </ion-label>
+        </ion-list-header>
+        <ion-item *ngFor="let item of sub.addons" lines="none">
+          <ion-label style="font-size: 14px;">{{item.name}}</ion-label>
+          <ion-radio slot="start" value="{{item.id}}"></ion-radio>
+        </ion-item>
+      </ion-radio-group>
+    </ion-list>
+  </div>
+
+  <br> <br> <br> <br>
+</ion-content>

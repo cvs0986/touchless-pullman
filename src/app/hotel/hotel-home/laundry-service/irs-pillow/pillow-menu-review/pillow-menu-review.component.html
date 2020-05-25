@@ -1,0 +1,50 @@
+<ion-toolbar>
+  <ion-title>
+    <img src="../../../../../../assets/Logo_Grey.png" alt="">
+  </ion-title>
+  <!-- <ion-buttons slot="end">
+    <ion-button (click)="dismissCart()">
+      <ion-icon slot="icon-only" name="close-outline"></ion-icon>
+    </ion-button>
+  </ion-buttons> -->
+</ion-toolbar>
+
+<ion-content>
+  <div class="bottom-buttons">
+    <div class="place-order-btn ion-padding-horizontal">
+      <ion-row>
+        <ion-col size="4">
+          <ion-button (click)="dismissCart()" color="light" mode="md" expand="block"
+            style="text-transform: capitalize;">
+            <ion-icon size="small" slot="start" name="chevron-back-outline"></ion-icon>
+            Back
+          </ion-button>
+        </ion-col>
+        <ion-col size="8">
+          <ion-button (click)="placeRequest()" color="primary" mode="md" expand="block"
+            style="text-transform: capitalize;">
+            <ion-icon size="small" slot="end" name="caret-forward-outline"></ion-icon>
+            Place Request
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </div>
+  </div>
+
+  <div class="show-selected-items ion-padding-horizontal">
+    <h4>Please enter your room number to place request for following pillows.</h4>
+    <div class="services-wrap ion-padding-vertical">
+      <div class="selected-items" *ngFor="let item of placedRequest">
+        <p *ngIf="item.isChecked">{{item.name}}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="room-number ion-padding-horizontal">
+    <ion-item>
+      <ion-label position="floating">Room Number</ion-label>
+      <ion-input type="number" clearInput="true"></ion-input>
+    </ion-item>
+  </div>
+
+</ion-content>

@@ -11,11 +11,28 @@
 
 <ion-content>
   <div class="bottom-buttons" *ngIf="cartItems !== undefined">
-    <div class="place-order-btn ion-padding-horizontal">
+    <!-- <div class="place-order-btn ion-padding-horizontal">
       <ion-button (click)="orderPlaced()" color="success" mode="md" expand="block" style="text-transform: capitalize;">
         <ion-icon size="small" slot="end" name="caret-forward-outline"></ion-icon>
         Place Order
       </ion-button>
+    </div> -->
+    <ion-progress-bar type="indeterminate" *ngIf="progressLoading === true"></ion-progress-bar>
+    <div class="place-order-btn ion-padding-horizontal">
+      <ion-row>
+        <ion-col size="4" style="text-align: left;">
+          <span style="font-size: 12px;" class="header-txt">TOTAL</span><br>
+          <span style="font-size: 14px; font-weight: 600;">&#x20b9;{{totalAmount}}</span>
+        </ion-col>
+        <!-- <ion-col size="2"></ion-col> -->
+        <ion-col size="8">
+          <ion-button (click)="orderPlaced()" color="success" mode="md" expand="block"
+            style="text-transform: capitalize;">
+            <ion-icon size="small" slot="end" name="caret-forward-outline"></ion-icon>
+            Place Order
+          </ion-button>
+        </ion-col>
+      </ion-row>
     </div>
   </div>
 
@@ -26,27 +43,34 @@
 
   <div class="toggleMenus" *ngIf="cartItems !== undefined">
     <ion-list lines="none" mode="md" style="background: transparent;" *ngFor="let item of cartItems">
-      <ion-item style="margin-top: -15px;" mode="md" style="background: transparent;">
+      <ion-item style="margin-top: -15px;" mode="md" style="background: transparent;" *ngIf="item.count !== 0">
         <ion-label>
           <div class="details">
             <h2 style="font-size: 13px; font-weight: 600; display: flex; align-items: center; white-space: pre-wrap;">
               {{item.name}}
             </h2>
             <h3 class="price">&#x20b9;{{item.price}}.00</h3>
+            <div class="addon" *ngIf="item.addons.length !== 0">
+              <small style="font-weight: 800;">ADDONS</small> <br>
+              <small *ngFor="let addon of item.addons">{{addon.name}} | </small>
+            </div>
           </div>
-  
+
           <div class="add-action">
-            <ion-button (click)="addItemInitial(item)" *ngIf="item.qty === 0" fill="outline" size="small" color="medium"
+            <!-- <ion-button (click)="addItemInitial(item)" *ngIf="item.count === 0" fill="outline" size="small" color="medium"
               style="text-transform: capitalize; font-weight: 400;">
               Add <ion-icon style="margin-right: 5px;" slot="icon-only" size="small" name="add-outline"></ion-icon>
-            </ion-button>
-  
-            <div class="add-item-button" *ngIf="item.qty !== 0">
+            </ion-button> -->
+
+            <div class="add-item-button" *ngIf="item.count !== 0">
               <ion-icon (click)="decrementQty(item)" class="add-item-button-left" name="remove-outline"></ion-icon>
-              {{item.qty}} <ion-icon (click)="incrementQty(item)" class="add-item-button-right" name="add-outline">
+              {{item.count}} <ion-icon (click)="incrementQty(item)" class="add-item-button-right" name="add-outline">
               </ion-icon>
             </div>
-  
+            <div class="item-price" style="font-size: 13px; text-align: right;" *ngIf="item.count !==0">
+              &#x20b9;{{calculateItemPrice(item.count, item.price)}}
+            </div>
+
           </div>
         </ion-label>
       </ion-item>
@@ -59,16 +83,17 @@
     <div class="spa-divider"></div>
     <br>
     <ion-item lines="none">
-      <ion-label>
-        <div class="details">
-          <p>Room Number</p>
-          <p style="font-size: 18px;">6002</p>
-        </div>
-      </ion-label>
+      <ion-label position="fixed">Room No *</ion-label>
+      <ion-input [(ngModel)]="roomNo" color="success" clearInput="true" color="success" style="padding: 0px 10px !important;
+                      border: 1px solid #2e5e227a;
+                      border-radius: 5px;
+                      background-color: #fff; margin-left: 45px;" type="number" placholder="Enter Room No.">
+      </ion-input>
     </ion-item>
+    <br>
     <ion-item lines="none">
       <ion-label position="stacked">Cooking Instruction</ion-label>
-      <ion-textarea style="padding: 0px 10px !important;
+      <ion-textarea [(ngModel)]="cookingIns" style="padding: 0px 10px !important;
                 border: 1px solid #2e5e227a;
                 margin-top: 15px;
                 border-radius: 5px;
@@ -80,11 +105,12 @@
         <div class="details">
           <p style="font-size: 15px;">Number Of Guests</p>
         </div>
-  
+
         <div class="add-action">
           <div class="add-item-button">
             <ion-icon (click)="decrementGuest()" class="add-item-button-left" name="remove-outline"></ion-icon>
-            {{guestQty}} <ion-icon (click)="incrementGuest()" class="add-item-button-right" name="add-outline"></ion-icon>
+            {{guestQty}} <ion-icon (click)="incrementGuest()" class="add-item-button-right" name="add-outline">
+            </ion-icon>
           </div>
         </div>
       </ion-label>
@@ -93,6 +119,6 @@
     <div class="spa-divider"></div>
   </div>
 
-  <br> <br>
+  <br> <br> <br>
 
 </ion-content>

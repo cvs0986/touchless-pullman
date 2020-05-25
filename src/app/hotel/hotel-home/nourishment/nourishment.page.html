@@ -13,23 +13,26 @@
   <ion-row style="padding: 0px 9px; margin-bottom: 10px;">
     <ion-col size="12">
       <ion-thumbnail>
-        <img src="../../../../assets/Novotel_Room Directory-15.png" alt="">
+        <img src="../../../../assets/dining-banner.jpg" alt="">
       </ion-thumbnail>
     </ion-col>
   </ion-row>
   
   <ion-row class="row-padding">
-    <ion-col size="12" class="journey-tiles" style="background-color: rgba(195, 60, 91, 0.4);" (click)="nourishmentNavigation('ird-menu')">
-      <span class="header-txt" style="font-size: 15px; font-weight: 500; text-transform: uppercase;">In-room dining menu</span> <br>
-      <!-- <span style="font-size: 13px;">Explore our authentic cuisine that celebrates local flavors and overall wellness.</span> -->
-    </ion-col>
-    <ion-col size="12" class="journey-tiles" style="background-color: rgba(143, 50, 71, 0.38);" (click)="nourishmentNavigation('refreshment-menu')">
-      <span class="header-txt" style="font-size: 15px; font-weight: 500; text-transform: uppercase;">Wine and Beverage</span> <br>
-      <!-- <span style="font-size: 13px;">Explore beverages and snacks available in your minibar.</span> -->
-    </ion-col>
-    <ion-col size="12" class="journey-tiles" style="background-color: #8BA37E;" (click)="nourishmentNavigation('pre-order')">
+    <ion-col size="12" class="journey-tiles" (click)="nourishmentNavigation('pre-order')">
       <span class="header-txt" style="font-size: 15px; font-weight: 500; text-transform: uppercase;">Pre-order breakfast</span> <br>
-      <!-- <span style="font-size: 13px;">Have a nourishing start. Pre-order breakfast from SAVOR by JW.</span> -->
+    </ion-col>
+    <ion-col size="12" class="journey-tiles"  (click)="nourishmentNavigation('breakfast')">
+      <span class="header-txt" style="font-size: 15px; font-weight: 500; text-transform: uppercase;">breakfast</span> <br>
+    </ion-col>
+    <ion-col size="12" class="journey-tiles"  (click)="nourishmentNavigation('ird-menu')">
+      <span class="header-txt" style="font-size: 15px; font-weight: 500; text-transform: uppercase;">All-day In-room dining</span> <br>
+    </ion-col>
+    <ion-col size="12" class="journey-tiles" (click)="nourishmentNavigation('late-night')">
+      <span class="header-txt" style="font-size: 15px; font-weight: 500; text-transform: uppercase;">Late-night Dining</span> <br>
+    </ion-col>
+    <ion-col size="12" class="journey-tiles"  (click)="nourishmentNavigation('refreshment-menu')">
+      <span class="header-txt" style="font-size: 15px; font-weight: 500; text-transform: uppercase;">Wine and Beverage</span> <br>
     </ion-col>
     <!-- <ion-col size="12" class="journey-tiles" style="background-color: #DFB97A;" (click)="nourishmentNavigation('guide')">
       <span class="header-txt" style="font-size: 15px; font-weight: 500;">IN ROOM REFRESHMENT CENTER</span> <br>

@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { IrdMenuPageRoutingModule } from './ird-menu-routing.module';
 
 import { IrdMenuPage } from './ird-menu.page';
+import { ItemAddOnComponent } from './item-add-on/item-add-on.component';
 
 @NgModule({
   imports: [
@@ -15,6 +16,7 @@ import { IrdMenuPage } from './ird-menu.page';
     IonicModule,
     IrdMenuPageRoutingModule
   ],
-  declarations: [IrdMenuPage]
+  declarations: [IrdMenuPage, ItemAddOnComponent],
+  entryComponents: [ItemAddOnComponent]
 })
 export class IrdMenuPageModule {}

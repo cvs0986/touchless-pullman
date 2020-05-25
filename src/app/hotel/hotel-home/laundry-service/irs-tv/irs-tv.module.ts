@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { IrsTvPageRoutingModule } from './irs-tv-routing.module';
 
 import { IrsTvPage } from './irs-tv.page';
+import { Planet21ReviewOrderComponent } from './planet21-review-order/planet21-review-order.component';
 
 @NgModule({
   imports: [
@@ -15,6 +16,7 @@ import { IrsTvPage } from './irs-tv.page';
     IonicModule,
     IrsTvPageRoutingModule
   ],
-  declarations: [IrsTvPage]
+  declarations: [IrsTvPage, Planet21ReviewOrderComponent],
+  entryComponents: [Planet21ReviewOrderComponent]
 })
 export class IrsTvPageModule {}

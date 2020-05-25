@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { RefreshmentMenuPageRoutingModule } from './refreshment-menu-routing.module';
 
 import { RefreshmentMenuPage } from './refreshment-menu.page';
+import { MinibarCartReviewComponent } from './minibar-cart-review/minibar-cart-review.component';
 
 @NgModule({
   imports: [
@@ -15,6 +16,7 @@ import { RefreshmentMenuPage } from './refreshment-menu.page';
     IonicModule,
     RefreshmentMenuPageRoutingModule
   ],
-  declarations: [RefreshmentMenuPage]
+  declarations: [RefreshmentMenuPage, MinibarCartReviewComponent],
+  entryComponents: [MinibarCartReviewComponent]
 })
 export class RefreshmentMenuPageModule {}

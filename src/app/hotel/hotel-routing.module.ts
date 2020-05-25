@@ -129,7 +129,7 @@ const routes: Routes = [
             path: 'irs',
             children: [
               { path: '', loadChildren: './hotel-home/laundry-service/laundry-service.module#LaundryServicePageModule'},
-              { path: 'irs-tv', loadChildren: './hotel-home/laundry-service/irs-tv/irs-tv.module#IrsTvPageModule'},
+              { path: 'irs-planet21', loadChildren: './hotel-home/laundry-service/irs-tv/irs-tv.module#IrsTvPageModule'},
               { path: 'irs-pillow', loadChildren: './hotel-home/laundry-service/irs-pillow/irs-pillow.module#IrsPillowPageModule'},
               { path: 'irs-laundry', loadChildren: './hotel-home/laundry-service/irs-laundry/irs-laundry.module#IrsLaundryPageModule'}
             ]
@@ -141,6 +141,10 @@ const routes: Routes = [
         loadChildren: './covid-info/covid-info.module#CovidInfoPageModule'
       }
     ],
+  },
+  {
+    path: 'thank-you',
+    loadChildren: () => import('./thank-you-screen/thank-you-screen.module').then( m => m.ThankYouScreenPageModule)
   },
 ];
 

@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { ConnectPageRoutingModule } from './connect-routing.module';
 
 import { ConnectPage } from './connect.page';
+import { PlaceYourRequestReviewComponent } from './place-your-request-review/place-your-request-review.component';
 
 @NgModule({
   imports: [
@@ -15,6 +16,7 @@ import { ConnectPage } from './connect.page';
     IonicModule,
     ConnectPageRoutingModule
   ],
-  declarations: [ConnectPage]
+  declarations: [ConnectPage, PlaceYourRequestReviewComponent],
+  entryComponents: [PlaceYourRequestReviewComponent]
 })
 export class ConnectPageModule {}

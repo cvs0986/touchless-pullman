@@ -14,7 +14,24 @@
     <ion-back-button defaultHref="/hotel/tabs/hotel-home/irs"></ion-back-button>
   </ion-buttons>
 
-  <div class="container ion-padding-horizontal">
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" *ngIf="selectedRequests.length !== 0">
+    <ion-button (click)="reviewRequest()" fill="solid" mode="md" size="small" shape="round" color="success"> Review Request
+      <ion-icon slot="end" name="chevron-forward-outline"></ion-icon>
+    </ion-button>
+  </ion-fab>
+
+  <ion-list>
+    <ion-list-header>
+      Pillow Menu
+    </ion-list-header>
+
+    <ion-item *ngFor="let request of requestLists" (ionChange)="requestChange(request)">
+      <ion-label>{{request.name}}</ion-label>
+      <ion-checkbox slot="start" [(ngModel)]="request.isChecked"></ion-checkbox>
+    </ion-item>
+  </ion-list>
+
+  <!-- <div class="container ion-padding-horizontal">
     <div>
       <h2 style="text-align: center;">PULLMAN PILLOW MENU</h2>
       <h3>NOTHING BEATS A GOOD NIGHT’S SLEEP</h3>
@@ -49,5 +66,5 @@
       <p>Hard Pillow is made from the finest
         of cotton fiber. Hard Pillows are cool and moisture absorbing for comfortable sleep.</p>
     </div>
-  </div>
+  </div> -->
 </ion-content>
