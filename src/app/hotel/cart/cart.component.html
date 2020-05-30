@@ -10,13 +10,23 @@
 </ion-toolbar>
 
 <ion-content>
-  <div class="bottom-buttons" *ngIf="cartItems !== undefined">
-    <!-- <div class="place-order-btn ion-padding-horizontal">
-      <ion-button (click)="orderPlaced()" color="success" mode="md" expand="block" style="text-transform: capitalize;">
-        <ion-icon size="small" slot="end" name="caret-forward-outline"></ion-icon>
-        Place Order
-      </ion-button>
-    </div> -->
+  <ion-fab slot="fixed" vertical="bottom" *ngIf="cartItems !== undefined">
+    <ion-row>
+      <ion-col size="4" style="text-align: left;">
+        <span style="font-size: 12px;" class="header-txt">TOTAL</span><br>
+        <span style="font-size: 14px; font-weight: 600;">&#x20b9;{{totalAmount}}</span>
+      </ion-col>
+      <!-- <ion-col size="2"></ion-col> -->
+      <ion-col size="8">
+        <ion-button (click)="orderPlaced()" color="success" mode="md" expand="block" style="text-transform: capitalize;">
+          <ion-icon size="small" slot="end" name="caret-forward-outline"></ion-icon>
+          Place Order
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-fab>
+
+  <!-- <div class="bottom-buttons" *ngIf="cartItems !== undefined">
     <ion-progress-bar type="indeterminate" *ngIf="progressLoading === true"></ion-progress-bar>
     <div class="place-order-btn ion-padding-horizontal">
       <ion-row>
@@ -24,7 +34,6 @@
           <span style="font-size: 12px;" class="header-txt">TOTAL</span><br>
           <span style="font-size: 14px; font-weight: 600;">&#x20b9;{{totalAmount}}</span>
         </ion-col>
-        <!-- <ion-col size="2"></ion-col> -->
         <ion-col size="8">
           <ion-button (click)="orderPlaced()" color="success" mode="md" expand="block"
             style="text-transform: capitalize;">
@@ -34,7 +43,7 @@
         </ion-col>
       </ion-row>
     </div>
-  </div>
+  </div> -->
 
   <div class="no-items" *ngIf="cartItems === undefined">
     <p>No items added in cart!</p>

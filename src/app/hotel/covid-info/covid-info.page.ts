@@ -6,6 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./covid-info.page.scss'],
 })
 export class CovidInfoPage implements OnInit {
+  slideOpts = {
+    initialSlide: 0,
+    speed: 400
+  };
 
   constructor() { }
 

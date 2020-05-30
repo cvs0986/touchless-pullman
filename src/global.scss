@@ -100,9 +100,30 @@ ion-button {
     font-family: 'FuturaHeader' !important;
 }
 
+.laundry-tnc .modal-wrapper {
+   height: 70%;
+   top: 30%;
+   position: absolute; 
+   display: block;  
+}
+
 .my-custom-modal-css .modal-wrapper {
    height: 80%;
    top: 20%;
    position: absolute; 
    display: block;  
+}
+
+.more-benefits {
+    color: #4CAF50 !important;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    margin-bottom: 20px !important;
+}
+
+.llp {
+    color: #2196F3  !important;
+    font-size: 15px !important;
+    font-size: 16px !important;
+    font-weight: 600 !important;
 }

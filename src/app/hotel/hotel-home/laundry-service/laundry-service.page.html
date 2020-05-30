@@ -14,10 +14,6 @@
     <ion-back-button defaultHref="/hotel/tabs/hotel-home"></ion-back-button>
   </ion-buttons>
 
-  <!-- <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-    <ion-button (click)="bookLaundry()" size="small" shape="round" color="primary">Book Laundry</ion-button>
-  </ion-fab> -->
-
   <ion-row style="padding: 0px 9px; margin-bottom: 10px;">
     <ion-col size="12">
       <ion-thumbnail>
@@ -36,14 +32,20 @@
     <ion-col size="12" class="journey-tiles" [routerLink]="['/hotel/tabs/hotel-home/irs/irs-planet21']">
       <span class="header-txt" style="font-size: 15px; font-weight: 500; text-transform: uppercase;">Sustainability-Planet21</span> <br>
     </ion-col>
-    <ion-col size="12" class="journey-tiles">
-      <span class="header-txt" style="font-size: 15px; font-weight: 500; text-transform: uppercase;">In-room fitness</span> <br>
+    <ion-col size="12" class="journey-tiles" [routerLink]="['/hotel/tabs/hotel-home/irs/irs-fitness']">
+      <span class="header-txt" style="font-size: 15px; font-weight: 500; text-transform: uppercase;">In room fitness</span> <br>
     </ion-col>
-    <ion-col size="12" class="journey-tiles">
-      <span class="header-txt" style="font-size: 15px; font-weight: 500; text-transform: uppercase;">In-room essentials</span> <br>
+    <ion-col size="12" class="journey-tiles" [routerLink]="['/hotel/tabs/hotel-home/irs/irs-essentials']">
+      <span class="header-txt" style="font-size: 15px; font-weight: 500; text-transform: uppercase;">In room essentials</span> <br>
     </ion-col>
-    <ion-col size="12" class="journey-tiles">
-      <span class="header-txt" style="font-size: 15px; font-weight: 500; text-transform: uppercase;">In-room refreshments</span> <br>
+    <ion-col size="12" class="journey-tiles" [routerLink]="['/hotel/tabs/hotel-home/irs/irs-refreshment']">
+      <span class="header-txt" style="font-size: 15px; font-weight: 500; text-transform: uppercase;">In room refreshments</span> <br>
+    </ion-col>
+    <ion-col size="12" class="journey-tiles" [routerLink]="['/hotel/tabs/hotel-home/irs/irs-safe']">
+      <span class="header-txt" style="font-size: 15px; font-weight: 500; text-transform: uppercase;">Safe Instructions</span> <br>
+    </ion-col>
+    <ion-col size="12" class="journey-tiles" [routerLink]="['/hotel/tabs/hotel-home/irs/irs-remote']">
+      <span class="header-txt" style="font-size: 15px; font-weight: 500; text-transform: uppercase;">remote Instructions</span> <br>
     </ion-col>
   </ion-row>
 

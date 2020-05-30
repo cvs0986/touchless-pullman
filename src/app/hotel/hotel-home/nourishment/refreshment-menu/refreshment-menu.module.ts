@@ -16,7 +16,6 @@ import { MinibarCartReviewComponent } from './minibar-cart-review/minibar-cart-r
     IonicModule,
     RefreshmentMenuPageRoutingModule
   ],
-  declarations: [RefreshmentMenuPage, MinibarCartReviewComponent],
-  entryComponents: [MinibarCartReviewComponent]
+  declarations: [RefreshmentMenuPage]
 })
 export class RefreshmentMenuPageModule {}

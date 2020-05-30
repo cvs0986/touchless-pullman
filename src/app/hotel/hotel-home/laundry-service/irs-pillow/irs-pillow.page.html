@@ -21,12 +21,18 @@
   </ion-fab>
 
   <ion-list>
-    <ion-list-header>
+    <ion-list-header style="font-size: 25px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #838383;
+    padding-bottom: 15px;">
       Pillow Menu
     </ion-list-header>
 
     <ion-item *ngFor="let request of requestLists" (ionChange)="requestChange(request)">
-      <ion-label>{{request.name}}</ion-label>
+      <ion-label class="ion-text-wrap">
+        {{request.name}} <br>
+        <small style="font-size: 15px;">{{request.details}}</small>
+      </ion-label>
       <ion-checkbox slot="start" [(ngModel)]="request.isChecked"></ion-checkbox>
     </ion-item>
   </ion-list>

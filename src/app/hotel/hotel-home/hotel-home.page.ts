@@ -92,10 +92,45 @@ export class HotelHomePage implements OnInit {
       this.router.navigateByUrl('/hotel/tabs/hotel-home/irs');
       return false;
     }
+    if (e === 'meet') {
+      this.router.navigateByUrl('/hotel/tabs/hotel-home/meet-play');
+      return false;
+    }
+    if (e === 'explore-dining') {
+      this.router.navigateByUrl('/hotel/tabs/hotel-home/explore-dining');
+      return false;
+    }
+    if (e === 'accor-live') {
+      this.router.navigateByUrl('/hotel/tabs/hotel-home/accor-live');
+      return false;
+    }
   }
 
   shareFeedback() {
     window.open('https://splash.getlocalmeasure.com/pulse/5b970909b6cd65002d304005?utm_source=qr', '_blank');
+  }
+
+  allAccor() {
+    this.alertCtrl.create({
+      buttons: [
+        {
+          text: 'More benefits',
+          cssClass: 'more-benefits',
+          handler: () => {
+            window.open('https://all.accor.com/loyalty-program/cards-status-benefits/index.en.shtml', '_blank');
+          }
+        },
+        {
+          text: 'Lifestyle loyalty program',
+          cssClass: 'llp',
+          handler: () => {
+            window.open('https://all.accor.com/loyalty-program/reasonstojoin/index.en.shtml', '_blank');
+          }
+        }
+      ]
+    }).then(alertEl => {
+      alertEl.present();
+    });
   }
 
 }

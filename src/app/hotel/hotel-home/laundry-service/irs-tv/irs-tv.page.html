@@ -14,7 +14,32 @@
     <ion-back-button defaultHref="/hotel/tabs/hotel-home/irs"></ion-back-button>
   </ion-buttons>
 
+  <ion-list>
+    <ion-list-header>
+      <h2 style="color: #757545;">Sustainability-Planet21</h2>
+    </ion-list-header>
+    <ion-item lines="none" *ngFor="let item of planet21List" (ionChange)="planet21Change(item)">
+      <ion-label>{{item.name}}</ion-label>
+      <ion-toggle mode="ios" [(ngModel)]="item.isEnabled"></ion-toggle>
+    </ion-item>
+  </ion-list>
+
   <ion-row style="padding: 0px 9px; margin-bottom: 10px;">
+    <ion-col size="12">
+      <ion-thumbnail>
+        <img src="../../../../../assets/Accor_Bed Linen_Reusage-1.png" alt="">
+      </ion-thumbnail>
+    </ion-col>
+    <ion-col size="12">
+      <ion-thumbnail>
+        <img src="../../../../../assets/Accor_Plant_for_the_Planet-2.png" alt="">
+      </ion-thumbnail>
+    </ion-col>
+  </ion-row>
+
+  
+
+  <!-- <ion-row style="padding: 0px 9px; margin-bottom: 10px;">
     <ion-col size="12">
       <ion-thumbnail>
         <img src="../../../../../assets/linen-bed.jpg" alt="">
@@ -46,5 +71,5 @@
         <ion-button style="text-transform: none;" (click)="changeTowels()" fill="outline" color="primary">Change towels</ion-button>
       </div>
     </ion-col>
-  </ion-row>
+  </ion-row> -->
 </ion-content>

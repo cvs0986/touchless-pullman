@@ -15,6 +15,6 @@ import { HotelHomePage } from './hotel-home.page';
     IonicModule,
     HotelHomePageRoutingModule
   ],
-  declarations: [HotelHomePage]
+  declarations: [HotelHomePage],
 })
 export class HotelHomePageModule {}

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastController, AlertController, ModalController } from '@ionic/angular';
 import { PlaceYourRequestReviewComponent } from './place-your-request-review/place-your-request-review.component';
+import { HotelApiService } from '../../hotel-api.service';
 
 @Component({
   selector: 'app-connect',
@@ -10,7 +11,10 @@ import { PlaceYourRequestReviewComponent } from './place-your-request-review/pla
 export class ConnectPage implements OnInit {
   additionalRequest: string;
   showAdditionalRequest = false;
+  showBottles = false;
+  bottles;
   selectedRequests: any[] = [];
+  requestsListApi: any = [];
   requestLists: any[] = [
     {name: 'Baggage pick up', isChecked: false, value: 'baggage-pick-up'},
     {name: 'Prepare my check out', isChecked: false, value: 'check-out'},
@@ -20,24 +24,85 @@ export class ConnectPage implements OnInit {
   constructor(
     private toastCtrl: ToastController,
     private alertCtrl: AlertController,
-    private modalCtrl: ModalController
+    private modalCtrl: ModalController,
+    private hotelApi: HotelApiService
   ) { }
 
   ngOnInit() {
-
+    this.hotelApi.getRequestServicesMenus('N1loWW9Sc3JKbjJUMEZNdmpERGVrM3N6b3N5ZjN3aWZCTFlHRjlGZFFVZz0=').subscribe(
+      (resp) => {
+        this.requestsListApi = resp.body.data;
+        console.log(this.requestsListApi);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
 
   requestChange(request) {
     if (request.isChecked) {
-      this.selectedRequests.push(request.name);
+      this.selectedRequests.push(request);
       console.log(this.selectedRequests);
     } else if (!request.isChecked) {
-      this.selectedRequests.splice(this.selectedRequests.indexOf(request.name), 1);
+      this.selectedRequests.splice(this.selectedRequests.indexOf(request), 1);
       console.log(this.selectedRequests);
     }
 
     console.log(request);
-    if (request.value === 'additional-request' && request.isChecked) {
+
+    if (request.type === 'with-count' && request.isChecked) {
+      this.alertCtrl.create({
+        header: 'Number of bottles',
+        backdropDismiss: false,
+        inputs: [
+          {
+            name: 'bottles',
+            type: 'number',
+            placeholder: 'Bottles'
+          },
+        ],
+        buttons: [
+          {
+            text: 'Cancel',
+            role: 'cancel',
+            handler: () => {
+              request.isChecked = false;
+            }
+          }, {
+            text: 'DONE',
+            handler: (data) => {
+              console.log(data);
+              if (data.bottles === '' || data.bottles === undefined || data.bottles == 0) {
+                this.toastCtrl.create({
+                  message: 'Please enter number of bottles!',
+                  color: 'warning',
+                  duration: 1500,
+                  position: 'top',
+                  keyboardClose: true,
+                }).then(toastEl => {
+                  toastEl.present();
+                });
+
+                return false;
+              }
+              this.bottles = data.bottles;
+              this.showBottles = true;
+            }
+          }
+        ]
+      }).then(alertEl => {
+        alertEl.present();
+      });
+    }
+
+    if (request.type === 'with-count' && !request.isChecked) {
+      this.bottles = 0;
+      this.showBottles = false;
+    }
+
+
+    if (request.type === 'open-msg' && request.isChecked) {
       this.alertCtrl.create({
         header: 'Your Request',
         backdropDismiss: false,
@@ -82,7 +147,7 @@ export class ConnectPage implements OnInit {
       });
     }
 
-    if (request.value === 'additional-request' && !request.isChecked) {
+    if (request.type === 'open-msg' && !request.isChecked) {
       this.additionalRequest = '';
       this.showAdditionalRequest = false;
     }
@@ -105,8 +170,9 @@ export class ConnectPage implements OnInit {
       this.modalCtrl.create({
       component: PlaceYourRequestReviewComponent,
       componentProps: {
-        placedRequest: this.requestLists,
-        additionalRequest: this.additionalRequest
+        placedRequest: this.selectedRequests,
+        additionalRequest: this.additionalRequest,
+        bottles: this.bottles
       }
       }).then(modalEl => {
         modalEl.present();
@@ -114,112 +180,6 @@ export class ConnectPage implements OnInit {
       return false;
     }
     console.log(this.requestLists, this.additionalRequest);
-  }
-
-  baggagePickup() {
-    const todayDate = new Date();
-    const date = todayDate.getDate();
-    const month = todayDate.getMonth();
-    const year = todayDate.getFullYear();
-    this.alertCtrl.create({
-      header: 'Baggage Pick up',
-      inputs: [
-        {
-          name: 'date',
-          type: 'date',
-          value: '2020-05-19',
-          placeholder: 'Select date'
-        },
-        {
-          name: 'time',
-          type: 'time',
-          value: '05:00PM',
-          placeholder: '00:00 AM'
-        }
-      ],
-      buttons: [
-        {
-          text: 'Cancel',
-          role: 'cancel',
-          handler: () => {
-            console.log('Confirm Cancel');
-          }
-        }, {
-          text: 'Confirm',
-          handler: (data) => {
-            console.log(data);
-            this.toastCtrl
-              .create({
-                message: 'We will send someone to your room on ' + data.date + ', ' + data.time + ' for baggage pick up.',
-                position: 'top',
-                header: 'THANK YOU',
-                duration: 4000,
-                keyboardClose: true,
-                color: 'primary',
-              })
-              .then((toastEl) => {
-                toastEl.present();
-              });
-          }
-        }
-      ]
-    }).then(alertEl => {
-      alertEl.present();
-    });
-  }
-
-  checkout() {
-    this.toastCtrl.create({
-      message: 'We will prepare your Check Out.',
-      position: 'top',
-      header: 'Noted!',
-      duration: 2000,
-      keyboardClose: true,
-      color: 'success'
-    }).then(toastEl => {
-      toastEl.present();
-    });
-  }
-
-  request() {
-    this.alertCtrl.create({
-      header: 'Your Request',
-      inputs: [
-        {
-          name: 'request',
-          type: 'textarea',
-          placeholder: 'request'
-        },
-      ],
-      buttons: [
-        {
-          text: 'Cancel',
-          role: 'cancel',
-          handler: () => {
-            console.log('Confirm Cancel');
-          }
-        }, {
-          text: 'Submit Request',
-          handler: (data) => {
-            console.log(data);
-            this.toastCtrl
-              .create({
-                message: 'We will get back you shortly to cater to your request.',
-                position: 'top',
-                header: 'Thank you!',
-                duration: 4000,
-                keyboardClose: true,
-                color: 'warning',
-              })
-              .then((toastEl) => {
-                toastEl.present();
-              });
-          }
-        }
-      ]
-    }).then(alertEl => {
-      alertEl.present();
-    });
   }
 
 }

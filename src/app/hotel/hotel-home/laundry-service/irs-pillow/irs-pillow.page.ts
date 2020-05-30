@@ -18,7 +18,7 @@ export class IrsPillowPage implements OnInit {
     {
       name: 'FOAM PILLOW',
       isChecked: false,
-      details: 'Adapts perfectly to head and neck; optimal support for people sleeping on their back or side.'
+      details: 'Adapts perfectly to head and neck, optimal support for people sleeping on their back or side.'
     },
     {
       name: 'LEG PILLOW',

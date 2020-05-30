@@ -10,16 +10,16 @@
 </ion-toolbar>
 
 <ion-content class="ion-padding-horizontal">
-  <div class="bottom-buttons">
+  <ion-fab slot="fixed" vertical="bottom">
+    <ion-button color="success" mode="md" expand="full" style="text-transform: capitalize;" (click)="addAddOns()">
+      <ion-icon size="small" slot="end" name="caret-forward-outline"></ion-icon>
+      ADD
+    </ion-button>
+  </ion-fab>
+
+  <!-- <div class="bottom-buttons">
     <div class="place-order-btn ion-padding-horizontal">
       <ion-row>
-        <ion-col size="6">
-          <!-- <div class="add-item-button">
-            <ion-icon (click)="decrementQty(itemAddon)" class="add-item-button-left" name="remove-outline"></ion-icon>
-            {{itemAddon.count}} <ion-icon (click)="incrementQty(itemAddon)" class="add-item-button-right" name="add-outline">
-            </ion-icon>
-          </div> -->
-        </ion-col>
         <ion-col size="6">
           <ion-button color="success" mode="md" expand="block" style="text-transform: capitalize;"
             (click)="addAddOns()">
@@ -29,7 +29,7 @@
         </ion-col>
       </ion-row>
     </div>
-  </div>
+  </div> -->
 
 
   <!-- <ion-list *ngFor="let sub of itemAddon.sub_addons">

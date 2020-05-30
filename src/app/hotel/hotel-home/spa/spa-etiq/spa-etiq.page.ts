@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
-import { SpaCartComponent } from '../spa-cart/spa-cart.component';
+import { KidsCartComponent } from './kids-cart/kids-cart.component';
 
 @Component({
   selector: 'app-spa-etiq',
@@ -64,7 +64,7 @@ export class SpaEtiqPage implements OnInit {
   bookSpa(item) {
     this.modalCtrl
       .create({
-        component: SpaCartComponent,
+        component: KidsCartComponent,
         componentProps: {
           spaItem: item,
         },

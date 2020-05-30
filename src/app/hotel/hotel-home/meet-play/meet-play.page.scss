@@ -1,0 +1,31 @@
+ion-thumbnail {
+  width: 100%;
+  height: 100%;
+
+  img {
+    border-radius: 8px;
+  }
+}
+
+h3{color: #086B99;}
+#rooms {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 9px;
+}
+
+#rooms td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#rooms tr:nth-child(even){background-color: #f2f2f2;}
+
+#rooms tr:hover {background-color: #ddd;}
+
+#rooms th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  background-color: #2170b9;
+  color: white;
+}

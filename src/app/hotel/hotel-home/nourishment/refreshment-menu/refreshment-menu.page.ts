@@ -3,6 +3,7 @@ import { ModalController, Platform, ToastController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { HotelApiService } from 'src/app/hotel/hotel-api.service';
 import { MinibarCartReviewComponent } from './minibar-cart-review/minibar-cart-review.component';
+import { StaticCartComponent } from 'src/app/hotel/static-cart/static-cart.component';
 
 @Component({
   selector: 'app-refreshment-menu',
@@ -12,7 +13,6 @@ import { MinibarCartReviewComponent } from './minibar-cart-review/minibar-cart-r
 export class RefreshmentMenuPage implements OnInit {
   itemQty = 0;
   isIos: boolean;
-  menuItemsApi: any = [];
 
   menuItems: any[] = [
     {
@@ -158,68 +158,58 @@ export class RefreshmentMenuPage implements OnInit {
   ngOnInit() {
     this.isIos = this.platform.is('ios');
     console.log(this.isIos);
-
-    this.hotelApi.getMinibarMenus('N1loWW9Sc3JKbjJUMEZNdmpERGVrM3N6b3N5ZjN3aWZCTFlHRjlGZFFVZz0=').subscribe(
-      (resp) => {
-        console.log(resp);
-        this.menuItemsApi = resp.body.data;
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
-
   }
 
   addItemInitial(menuItem) {
-    menuItem.count += 1;
+    menuItem.qty += 1;
     this.itemQty += 1;
-    console.log(menuItem.count + 1, menuItem, this.itemQty);
+    console.log(menuItem.qty + 1, menuItem, this.itemQty);
   }
 
   incrementQty(item) {
-    item.count += 1;
+    item.qty += 1;
     this.itemQty += 1;
-    console.log(item.count + 1, item, this.itemQty);
+    console.log(item.qty + 1, item, this.itemQty);
   }
 
   // decrements item
 
   decrementQty(item) {
-    if (item.count - 1 < 1) {
-      item.count = 0;
+    if (item.qty - 1 < 1) {
+      item.qty = 0;
       this.itemQty -= 1;
-      console.log(item.count, item, this.itemQty);
+      console.log(item.qty, item, this.itemQty);
     } else {
-      item.count -= 1;
+      item.qty -= 1;
       this.itemQty -= 1;
-      console.log(item.count, item, this.itemQty);
+      console.log(item.qty, item, this.itemQty);
     }
   }
 
   reviewOrder() {
-    localStorage.removeItem('cart-items');
     const cartItems = [];
-    this.menuItemsApi.without_category_items.filter((item) => {
-        if (item.count !== 0) {
-          cartItems.push(item);
+    this.menuItems.filter((item) => {
+      item.items.filter((menuItem) => {
+        if (menuItem.qty !== 0) {
+          cartItems.push(menuItem);
         }
+      });
     });
     console.log(cartItems);
-    localStorage.setItem('cart-items', JSON.stringify(cartItems));
 
     this.modalCtrl
       .create({
-        component: MinibarCartReviewComponent,
+        component: StaticCartComponent,
         componentProps: {
           cartItems: cartItems,
-          itemQty: this.itemQty,
+          itemQty: this.itemQty
         },
       })
       .then((modalEl) => {
         modalEl.present();
         modalEl.onDidDismiss().then(dismissEl => {
           if (dismissEl.data.dismissed === 'closed') {
+            console.log(dismissEl);
             this.itemQty = dismissEl.data.totalQty;
           }
         });

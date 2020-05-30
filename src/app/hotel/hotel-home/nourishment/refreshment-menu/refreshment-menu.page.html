@@ -11,6 +11,11 @@
 
 <ion-content>
 
+  <!-- <ion-fab vertical="bottom" horizontal="start" slot="fixed" *ngIf="isIos === true">
+    <ion-button shape="round" fill="solid" mode="md" size="small" color="primary"> Menu
+    </ion-button>
+  </ion-fab> -->
+  
   <ion-fab vertical="bottom" horizontal="end" slot="fixed" *ngIf="isIos === true && itemQty !== 0">
     <ion-button (click)="reviewOrder()" fill="solid" mode="md" size="small" shape="round" color="success"> View Cart
       <ion-icon slot="end" name="chevron-forward-outline"></ion-icon>
@@ -18,6 +23,11 @@
   </ion-fab>
 
   <div class="bottom-buttons" *ngIf="isIos === false">
+    <!-- <ion-button fill="solid" shape="round" size="small" color="primary"
+      style="text-transform: capitalize; font-weight: 500; margin-bottom: 10px; margin-right: 16px;">
+      MENU <ion-icon style="margin-right: 5px;" slot="icon-only" size="small" name="menu-outline"></ion-icon>
+    </ion-button> -->
+
     <div class="place-order-btn ion-padding-horizontal" *ngIf="itemQty !== 0 && isIos === false">
       <ion-button (click)="reviewOrder()" color="success" mode="md" expand="block" style="text-transform: capitalize;">
         <ion-icon size="small" slot="end" name="caret-forward-outline"></ion-icon>
@@ -42,40 +52,45 @@
   <ion-row style="padding: 0px 9px; margin-bottom: 10px;">
     <ion-col size="12">
       <ion-thumbnail>
-        <img src="../../../../../assets/bar-banner.jpg" alt="">
+        <img src="../../../../../assets/wine-beverage-px.jpg" alt="">
       </ion-thumbnail>
     </ion-col>
   </ion-row>
 
   <div class="nourishment-section">
-    <span class="header-txt" style="font-size: 16px; font-weight: 500; text-transform: uppercase;">Wine and Beverage</span> <br>
+    <span class="header-txt" style="font-size: 16px; font-weight: 500;">WINE AND BEVERAGE</span> <br>
+    <!-- <span style="font-size: 12px;">6.00am - 11.00am</span> <br> -->
     <br>
     <div class="nourishment-divider"></div>
-    <div class="nourishment-el">
-      <!-- <div class="el-category">
+    <br> <br>
+    <div class="nourishment-el" *ngFor="let menu of menuItems">
+      <div class="el-category">
         <p><span>{{menu.categoryName}}</span></p>
-      </div> -->
+      </div>
       <div class="toggleMenus">
-        <ion-list lines="none" mode="md" style="background: transparent;" *ngFor="let item of menuItemsApi.without_category_items">
+        <ion-list lines="none" mode="md" style="background: transparent;" *ngFor="let item of menu.items">
           <ion-item style="margin-top: -15px;" mode="md" style="background: transparent;">
             <ion-label>
               <div class="details">
                 <h2
                   style="font-size: 13px; display: flex; align-items: center; white-space: pre-wrap;">
+                  <img *ngIf="item.type === 'veg'" src="../../../../../assets/icon/veg.png" width="18px" alt="">
+                  <img *ngIf="item.type === 'non-veg'" src="../../../../../assets/icon/non-veg.png" width="18px" alt="">
                   {{item.name}}
                 </h2>
                 <h3 class="price">&#x20b9;{{item.price}}.00</h3>
+                <p>{{item.details}}</p>
               </div>
 
               <div class="add-action">
-                <ion-button (click)="addItemInitial(item)" *ngIf="item.count === 0" fill="outline" size="small"
+                <ion-button (click)="addItemInitial(item)" *ngIf="item.qty === 0" fill="outline" size="small"
                   color="medium" style="text-transform: capitalize; font-weight: 400;">
                   Add <ion-icon style="margin-right: 5px;" slot="icon-only" size="small" name="add-outline"></ion-icon>
                 </ion-button>
 
-                <div class="add-item-button" *ngIf="item.count !== 0">
+                <div class="add-item-button" *ngIf="item.qty !== 0">
                   <ion-icon (click)="decrementQty(item)" class="add-item-button-left" name="remove-outline"></ion-icon>
-                  {{item.count}} <ion-icon (click)="incrementQty(item)" class="add-item-button-right" name="add-outline">
+                  {{item.qty}} <ion-icon (click)="incrementQty(item)" class="add-item-button-right" name="add-outline">
                   </ion-icon>
                 </div>
 

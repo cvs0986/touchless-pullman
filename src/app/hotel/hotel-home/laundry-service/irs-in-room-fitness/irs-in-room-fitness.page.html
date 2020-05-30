@@ -1,0 +1,52 @@
+<ion-toolbar>
+  <ion-title>
+    <img src="../../../../../assets/Logo_Grey.png" alt="">
+  </ion-title>
+  <ion-buttons slot="end">
+    <ion-button>
+      <ion-icon slot="icon-only" name="person-circle-outline"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+</ion-toolbar>
+
+<ion-content>
+  <ion-buttons>
+    <ion-back-button defaultHref="/hotel/tabs/hotel-home/irs"></ion-back-button>
+  </ion-buttons>
+  <br>
+  <ion-row class="row-padding">
+    <ion-col size="12" class="journey-tiles" (click)="requestFitnessKit()">
+      <span class="header-txt" style="font-size: 15px; font-weight: 500; text-transform: uppercase;">Request In room
+        fitness kit</span> <br>
+    </ion-col>
+    <ion-col size="12" class="journey-tiles" [routerLink]="['/hotel/tabs/hotel-home/irs/active-breakfast']" >
+      <span class="header-txt" style="font-size: 15px; font-weight: 500; text-transform: uppercase;">Active
+        Breakfast</span> <br>
+    </ion-col>
+  </ion-row>
+  <br>
+
+  <ion-row class="ion-padding-horizontal">
+    <h3 style="margin-bottom: 20px;">Sarah Hoey: Pullman Wellness Coach</h3>
+    <br> <br>
+    <iframe style="border-radius: 10px;" width="100%" height="200" autoplay="true" allow="autoplay" src="https://www.youtube.com/embed/itML_jMFEFE"
+      frameborder="0" allowfullscreen></iframe>
+    <p style="color: #9E9E9E; font-size: 18px; font-weight: 700;">Sarah Hoey: Pullman 4-min Evening Yoga Routine</p>
+    <br>
+    <iframe style="border-radius: 10px;" width="100%" height="200" autoplay="true" allow="autoplay" src="https://www.youtube.com/embed/sKCRsLebftE"
+      frameborder="0" allowfullscreen></iframe>
+      <p style="color: #9E9E9E; font-size: 18px; font-weight: 700;">Sarah Hoey: Pullman 4-min Morning Yoga Routine</p>
+
+    <br>
+    <iframe style="border-radius: 10px;" width="100%" height="200" autoplay="true" allow="autoplay" src="https://www.youtube.com/embed/jQQ9HDAk604"
+      frameborder="0" allowfullscreen></iframe>
+    <p style="color: #9E9E9E; font-size: 18px; font-weight: 700;">Sarah Hoey: Pullman 7-min Age Defence Workout</p>
+
+    <div class="action">
+      <ion-button expand="block" fill="outline" color="medium" (click)="seeMoreFitness()">See More</ion-button>
+    </div>
+  </ion-row>
+  <br>
+  <hr>
+  <br>
+</ion-content>

@@ -10,44 +10,87 @@
 </ion-toolbar>
 
 <ion-content>
-  <div class="bottom-buttons">
-    <div class="place-order-btn ion-padding-horizontal">
-      <ion-row>
-        <ion-col size="4">
-          <ion-button (click)="dismissCart()" color="light" mode="md" expand="block" style="text-transform: capitalize;">
-            <ion-icon size="small" slot="start" name="chevron-back-outline"></ion-icon>
-            Back
-          </ion-button>
-        </ion-col>
-        <ion-col size="8">
-          <ion-button (click)="placeRequest()" color="primary" mode="md" expand="block" style="text-transform: capitalize;">
-            <ion-icon size="small" slot="end" name="caret-forward-outline"></ion-icon>
-            Place Request
-          </ion-button>
-        </ion-col>
-      </ion-row>
-    </div>
-  </div>
-
+  <ion-fab slot="fixed" vertical="bottom">
+    <ion-row>
+      <ion-col size="4">
+        <ion-button (click)="dismissCart()" color="light" mode="md" expand="block" style="text-transform: capitalize;">
+          <ion-icon size="small" slot="start" name="chevron-back-outline"></ion-icon>
+          Back
+        </ion-button>
+      </ion-col>
+      <ion-col size="8">
+        <ion-button (click)="placeRequest()" color="success" mode="md" expand="block" style="text-transform: capitalize;">
+          <ion-icon size="small" slot="end" name="caret-forward-outline"></ion-icon>
+          Place Request
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-fab>
+  
+  
+  <!-- <div class="bottom-buttons">
+      <div class="place-order-btn ion-padding-horizontal">
+        <ion-row>
+          <ion-col size="4">
+            <ion-button (click)="dismissCart()" color="light" mode="md" expand="block"
+              style="text-transform: capitalize;">
+              <ion-icon size="small" slot="start" name="chevron-back-outline"></ion-icon>
+              Back
+            </ion-button>
+          </ion-col>
+          <ion-col size="8">
+            <ion-button (click)="placeRequest()" color="success" mode="md" expand="block"
+              style="text-transform: capitalize;">
+              <ion-icon size="small" slot="end" name="caret-forward-outline"></ion-icon>
+              Place Request
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </div>
+    </div> -->
+  
   <div class="show-selected-items ion-padding-horizontal">
     <h6>Please enter your room number to place request for following services.</h6>
     <div class="services-wrap ion-padding-vertical">
       <div class="selected-items" *ngFor="let item of placedRequest">
-        <p *ngIf="item.isChecked && item.value !== 'additional-request'">{{item.name}}</p>
-        <p *ngIf="item.value === 'additional-request' && item.isChecked">{{additionalRequest}}</p>
+        <p *ngIf="item.isChecked && item.type !== 'open-msg'">{{item.name}} <span style="margin-left: 10px;"
+            *ngIf="item.type === 'with-count' && bottles !== 0">({{bottles}})</span></p>
+        <p *ngIf="item.type === 'open-msg' && item.isChecked">{{additionalRequest}}</p>
         <!-- <div class="additional" *ngIf="item.value === 'additional-request' && item.isChecked">
-              <small>Your Request</small> <br>
-              <p>{{additionalRequest}}</p>
-            </div> -->
+                <small>Your Request</small> <br>
+                <p>{{additionalRequest}}</p>
+              </div> -->
       </div>
     </div>
   </div>
-
-  <div class="room-number ion-padding-horizontal">
-    <ion-item>
-      <ion-label position="floating">Room Number</ion-label>
-      <ion-input type="number" clearInput="true"></ion-input>
+  
+  <div class="guest-details">
+    <div class="spa-divider"></div>
+    <br>
+    <ion-item lines="none">
+      <ion-label>Room Number</ion-label>
+      <ion-input [(ngModel)]="room" style="border-bottom: 1px solid #cecbcb; margin-left: 120px; text-align: right;"
+        type="number" clearInput="true"></ion-input>
     </ion-item>
+    <ion-item lines="none">
+      <ion-label>
+        <div class="details">
+          <p style="font-size: 15px;">Number Of Guests</p>
+        </div>
+  
+        <div class="add-action">
+          <div class="add-item-button">
+            <ion-icon (click)="decrementQty()" class="add-item-button-left" name="remove-outline"></ion-icon>
+            {{guestQty}} <ion-icon (click)="incrementQty()" class="add-item-button-right" name="add-outline"></ion-icon>
+          </div>
+        </div>
+      </ion-label>
+    </ion-item>
+    <br>
+    <div class="spa-divider"></div>
   </div>
+  
+  
+  <br> <br><br><br> <br>
 
 </ion-content>

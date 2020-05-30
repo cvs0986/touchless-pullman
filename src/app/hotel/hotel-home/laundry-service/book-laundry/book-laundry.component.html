@@ -2,41 +2,29 @@
   <ion-title>
     <img src="../../../../../assets/Logo_Grey.png" alt="">
   </ion-title>
-  <!-- <ion-buttons slot="end">
-    <ion-button (click)="dismissCart()">
-      <ion-icon slot="icon-only" name="close-outline"></ion-icon>
-    </ion-button>
-  </ion-buttons> -->
 </ion-toolbar>
 
 
 <ion-content>
-  <!-- <ion-fab vertical="bottom" horizontal="end">
-    <ion-button (click)="placedOrder()" size="small" shape="round">Book</ion-button>
-  </ion-fab> -->
-
-  <div class="bottom-buttons">
-    <div class="place-order-btn ion-padding-horizontal">
-      <ion-row>
-        <ion-col size="4">
-          <ion-button (click)="dismissCart()" color="light" mode="md" expand="block" style="text-transform: capitalize;">
-            <ion-icon size="small" slot="start" name="chevron-back-outline"></ion-icon>
-            Back
-          </ion-button>
-        </ion-col>
-        <ion-col size="8">
-          <ion-button (click)="placedOrder()" color="success" mode="md" expand="block"
-            style="text-transform: capitalize;">
-            <ion-icon size="small" slot="end" name="caret-forward-outline"></ion-icon>
-            Place Order
-          </ion-button>
-        </ion-col>
-      </ion-row>
-    </div>
-  </div>
-
-  <h3 class="ion-padding-horizontal">Book Laundry</h3>
-
+  <ion-fab slot="fixed" vertical="bottom">
+    <ion-row>
+      <ion-col size="4">
+        <ion-button (click)="dismissCart()" color="light" mode="md" expand="block" style="text-transform: capitalize;">
+          <ion-icon size="small" slot="start" name="chevron-back-outline"></ion-icon>
+          Back
+        </ion-button>
+      </ion-col>
+      <ion-col size="8">
+        <ion-button (click)="placedOrder()" color="success" mode="md" expand="block" style="text-transform: capitalize;">
+          <ion-icon size="small" slot="end" name="caret-forward-outline"></ion-icon>
+          Place Request
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-fab>
+  
+  <h3 class="ion-padding-horizontal">Schedule Laundry Pickup</h3>
+  
   <div class="toggleMenus">
     <ion-list lines="none" mode="md" style="background: transparent;" *ngFor="let item of cartItems">
       <ion-item style="margin-top: -15px;" mode="md" style="background: transparent;" *ngIf="item.count !== 0">
@@ -45,7 +33,10 @@
             <h2 style="font-size: 13px; font-weight: 600; display: flex; align-items: center; white-space: pre-wrap;">
               {{item.name}}
             </h2>
-            <h3 class="price">&#x20b9;{{item.price}}.00</h3>
+            <h3 class="price">&#x20b9;{{item.price}}</h3>
+            <p style="font-size: 12px; color: #3F51B5;font-weight: 600;letter-spacing: 1px;" *ngIf="item.expressSelected">
+              Express Delivery
+            </p>
           </div>
   
           <div class="add-action">
@@ -59,23 +50,30 @@
       </ion-item>
     </ion-list>
   </div>
-
-
+  
+  
   <br><br>
   <div class="guest-details">
     <div class="spa-divider"></div>
     <br>
-    <ion-item lines="none">
-      <ion-label>Select Date</ion-label>
-      <ion-datetime [(ngModel)]="date" value="" pickerFormat="DD MMMM YYYY" max="2030-12-31" placeholder="Select Date"></ion-datetime>
+    <ion-item lines="none" (ionChange)="pickupNowChange(pickupNow)">
+      <ion-label>Pick up now</ion-label>
+      <ion-checkbox mode="md" slot="start" [(ngModel)]="pickupNow"></ion-checkbox>
     </ion-item>
-
-    <ion-item lines="none">
-      <ion-label>Select Time</ion-label>
-      <ion-datetime [(ngModel)]="time" display-format="h:mm A" picker-format="h:mm A" placeholder="Select Time">
+    <ion-text class="ion-padding-horizontal">OR</ion-text>
+    <br>
+    <ion-item lines="none" [disabled]="isDisabled">
+      <ion-label>Select Date</ion-label>
+      <ion-datetime [(ngModel)]="date" value="" pickerFormat="DD MMMM YYYY" max="2030-12-31" placeholder="Select Date">
       </ion-datetime>
     </ion-item>
-
+  
+    <ion-item lines="none" [disabled]="isDisabled">
+      <ion-label>Select Time</ion-label>
+      <ion-datetime [(ngModel)]="time" display-format="h:mm A" picker-format="h:mm A" min="7:00 AM" max="12:00 AM" placeholder="Select Time">
+      </ion-datetime>
+    </ion-item>
+  
     <ion-item lines="none">
       <ion-label>Room Number</ion-label>
       <ion-input [(ngModel)]="room" style="border-bottom: 1px solid #cecbcb; margin-left: 120px; text-align: right;"
@@ -84,4 +82,6 @@
     <br> <br>
     <div class="spa-divider"></div>
   </div>
+  
+  <br><br><br><br>
 </ion-content>

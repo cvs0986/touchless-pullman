@@ -1,0 +1,35 @@
+<ion-toolbar>
+  <ion-title>
+    <img src="../../../../assets/Logo_Grey.png" alt="">
+  </ion-title>
+  <ion-buttons slot="end">
+    <ion-button>
+      <ion-icon slot="icon-only" name="person-circle-outline"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+</ion-toolbar>
+
+<ion-content>
+  <ion-buttons>
+    <ion-back-button defaultHref="/hotel/tabs/hotel-home"></ion-back-button>
+  </ion-buttons>
+
+  <ion-row style="padding: 0px 9px; margin-bottom: 10px;">
+    <ion-col size="12">
+      <ion-thumbnail>
+        <img src="../../../../assets/accor-live.png" alt="">
+      </ion-thumbnail>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="row-padding">
+    <ion-col size="12" class="journey-tiles" (click)="benefits()">
+      <span class="header-txt" style="font-size: 15px; font-weight: 500; text-transform: uppercase;">More benefits</span> <br>
+    </ion-col>
+    <ion-col size="12" class="journey-tiles" (click)="llp()">
+      <span class="header-txt" style="font-size: 15px; font-weight: 500; text-transform: uppercase;">Lifestyle loyalty program</span>
+      <br>
+    </ion-col>
+  </ion-row>
+
+</ion-content>

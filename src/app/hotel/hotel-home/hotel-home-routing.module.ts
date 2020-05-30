@@ -35,6 +35,18 @@ const routes: Routes = [
   {
     path: 'laundry-service',
     loadChildren: () => import('./laundry-service/laundry-service.module').then( m => m.LaundryServicePageModule)
+  },
+  {
+    path: 'meet-play',
+    loadChildren: () => import('./meet-play/meet-play.module').then( m => m.MeetPlayPageModule)
+  },
+  {
+    path: 'explore-dining-venues',
+    loadChildren: () => import('./explore-dining-venues/explore-dining-venues.module').then( m => m.ExploreDiningVenuesPageModule)
+  },
+  {
+    path: 'accor-live',
+    loadChildren: () => import('./accor-live/accor-live.module').then( m => m.AccorLivePageModule)
   }
 ];
 

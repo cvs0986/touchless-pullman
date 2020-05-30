@@ -10,124 +10,88 @@
 </ion-toolbar>
 
 <ion-content>
-  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-    <ion-button (click)="exploreMenu($event)" color="primary" size="small" shape="round">MENU</ion-button>
-  </ion-fab>
-
   <ion-buttons>
     <ion-back-button defaultHref="/hotel/tabs/hotel-home/spa"></ion-back-button>
   </ion-buttons>
   <ion-row style="margin-bottom: 10px; padding: 0px 8px;">
     <ion-col size="12">
       <ion-thumbnail>
-        <img style="border-radius: 8px; box-shadow: 0px 0px 3px #ccc;" src="../../../../../assets/spa-banner1.png" alt="">
-      </ion-thumbnail>
-    </ion-col>
-  </ion-row>
-  <ion-row class="ion-padding-horizontal">
-    <p class="ion-text-center">
-      Quan is an experience that embraces one of
-      nature's purest restorative elements: spring
-      water. We- believe in the balance between the
-      nurturing power of water and the natural world
-      it nourishes, granting the opportunity for complete
-      release and mindful growth. Our treatments
-      provide a transformative experience that restores
-      through the tranquility and purity of water.
-    </p>
-  </ion-row>
-
-  <ion-row style="margin-bottom: 10px; padding: 0px 8px;">
-    <ion-col size="12">
-      <ion-thumbnail>
-        <img style="border-radius: 8px; box-shadow: 0px 0px 3px #ccc;" src="../../../../../assets/spa-banner2.png" alt="">
+        <img style="border-radius: 8px; box-shadow: 0px 0px 3px #ccc;" src="../../../../../assets/salon-banner.png" alt="">
       </ion-thumbnail>
     </ion-col>
   </ion-row>
 
-  <div class="spa-section ion-padding-horizontal" id="quan-sign">
-    <h4>QUAN SIGNATURES</h4>
-    <div class="spa-divider"></div>
-    <p>Quan Signatures are our indulgent
-    treatments and packages that give you a
-    unique experience, including a selection
-    with local 'air that are exclusive to this
-    Quan location.</p>
-
-    <div class="spa-items">
-      <span style="font-weight: 500; color: #636362; font-size: 16px;">ULTIMATE AROMATHERAPY EXPERIENCE</span> <br>
-      <span style="font-weight: 500; color: #636362; font-size: 14px;">60 / 90 MINUTES</span>
-      <p style="font-size: 14px; margin-top: 7px;">
-        This treatment releases tension held in every
-        part of the body that makes you deeply relaxed
-        and recharged. <br>
-        Car Willy applied pressure stimulates the
-        nervous system by Swedish and neuromuscular techniques that relieve muscular tension.
-        lymphatic drainage encourages healthy
-        circulation and the stress and strain are
-        dissolved.
-      </p>
-    </div>
-    <div class="spa-items">
-      <span style="font-weight: 500; color: #636362; font-size: 16px;">INTENSIVE DEEP ISSUE</span> <br>
-      <span style="font-weight: 500; color: #636362; font-size: 14px;">60 / 90 MINUTES</span>
-      <p style="font-size: 14px; margin-top: 7px;">
-        An intensive massage that works deep into stiff
-        tight and aching muscles to instantly release
-        pain and tension.
-      </p>
-    </div>
-    <div class="spa-items">
-      <span style="font-weight: 500; color: #636362; font-size: 16px;">ABHYANGA SPICE BUNDLE MASSAGE</span> <br>
-      <span style="font-weight: 500; color: #636362; font-size: 14px;">75 MINUTES</span>
-      <p style="font-size: 14px; margin-top: 7px;">
-        A special type ofAyurvedic Marma massage using relaxing herbal oils which help to
-        stimulate the Marma points of the body with Spice Bundle treatment for the stress points of the body to relieve stiffness and pain. The
-        treatment is very effective in combating stress
-        and relaxing the body followed by a steam bath.
-      </p>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" *ngIf="isIos === true && itemQty !== 0">
+    <ion-button (click)="reviewOrder()" fill="solid" mode="md" size="small" shape="round" color="success"> View Cart
+      <ion-icon slot="end" name="chevron-forward-outline"></ion-icon>
+    </ion-button>
+  </ion-fab>
+  
+  <div class="bottom-buttons" *ngIf="isIos === false">
+    <!-- <ion-button fill="solid" shape="round" size="small" color="primary"
+        style="text-transform: capitalize; font-weight: 500; margin-bottom: 10px; margin-right: 16px;">
+        MENU <ion-icon style="margin-right: 5px;" slot="icon-only" size="small" name="menu-outline"></ion-icon>
+      </ion-button> -->
+  
+    <div class="place-order-btn ion-padding-horizontal" *ngIf="itemQty !== 0 && isIos === false">
+      <ion-button (click)="reviewOrder()" color="success" mode="md" expand="block" style="text-transform: capitalize;">
+        <ion-icon size="small" slot="end" name="caret-forward-outline"></ion-icon>
+        <small style="margin-right: 50px; font-weight: 500;">
+          {{itemQty}}
+          <span style="margin-left: 3px;">
+            <span *ngIf="itemQty === 1">ITEM</span>
+            <span *ngIf="itemQty > 1">ITEMS</span>
+          </span>
+        </small>
+        View Cart
+      </ion-button>
     </div>
   </div>
-
-  <br>
-
-  <div class="spa-section ion-padding-horizontal" id="indian-trade">
-    <h4>INDIAN TRADITIONAL TREATMENT</h4>
-    <div class="spa-divider"></div>
+  
+  <div class="nourishment-section">
+    <span class="header-txt" style="font-size: 16px; font-weight: 500;">SALON</span> <br>
+    <!-- <span style="font-size: 12px;">6.00am - 11.00am</span> <br> -->
     <br>
-    <div class="spa-items">
-      <span style="font-weight: 500; color: #636362; font-size: 16px;">ABHYANGA</span> <br>
-      <span style="font-weight: 500; color: #636362; font-size: 14px;">60 / 90 MINUTES</span>
-      <p style="font-size: 14px; margin-top: 7px;">
-        Traditional Ayurveda massage to the whole
-        body is done with highly specialized medicated
-        oils, carefully chosen as per your body type and
-        health concerns. This is followed by medicated
-        herbal steam which opens your pores.
-      </p>
-    </div>
-    <div class="spa-items">
-      <span style="font-weight: 500; color: #636362; font-size: 16px;">SHIRODHARA</span> <br>
-      <span style="font-weight: 500; color: #636362; font-size: 14px;">60 MINUTES</span>
-      <p style="font-size: 14px; margin-top: 7px;">
-        ACustomarily used to treat stress-related
-        disorders, Shirodhara is the method of pouring
-        warm medicated oil onto the forehead. This is
-        said to open the third eye to absorb cosmic
-        energy On a physical level, it is said to aid the
-        healing of headaches, migraine, insomnia &
-        sinusitis leaving you relaxed.
-      </p>
-    </div>
-    <div class="spa-items">
-      <span style="font-weight: 500; color: #636362; font-size: 16px;">SHIROABHYANGAM</span> <br>
-      <span style="font-weight: 500; color: #636362; font-size: 14px;">30 MINUTES</span>
-      <p style="font-size: 14px; margin-top: 7px;">
-        This massage is used as a quick stress reliever
-        in India and the trigger points on the head are
-        stimulated to induce relaxation. The finest
-        Ksheerabala oil is used in this treatment.
-      </p>
+    <div class="nourishment-divider"></div>
+    <br> <br>
+    <div class="nourishment-el" *ngFor="let menu of menuItems">
+      <div class="el-category">
+        <p><span>{{menu.categoryName}}</span></p>
+      </div>
+      <div class="toggleMenus">
+        <ion-list lines="none" mode="md" style="background: transparent;" *ngFor="let item of menu.items">
+          <ion-item style="margin-top: -15px;" mode="md" style="background: transparent;">
+            <ion-label>
+              <div class="details">
+                <h2
+                  style="font-size: 13px; display: flex; align-items: center; white-space: pre-wrap;">
+                  <img *ngIf="item.type === 'veg'" src="../../../../../assets/icon/veg.png" width="18px" alt="">
+                  <img *ngIf="item.type === 'non-veg'" src="../../../../../assets/icon/non-veg.png" width="18px" alt="">
+                  {{item.name}}
+                </h2>
+                <h3 class="price">&#x20b9;{{item.price}}.00</h3>
+                <p>{{item.details}}</p>
+              </div>
+
+              <div class="add-action">
+                <ion-button (click)="addItemInitial(item)" *ngIf="item.qty === 0" fill="outline" size="small"
+                  color="medium" style="text-transform: capitalize; font-weight: 400;">
+                  Add <ion-icon style="margin-right: 5px;" slot="icon-only" size="small" name="add-outline"></ion-icon>
+                </ion-button>
+
+                <div class="add-item-button" *ngIf="item.qty !== 0">
+                  <ion-icon (click)="decrementQty(item)" class="add-item-button-left" name="remove-outline"></ion-icon>
+                  {{item.qty}} <ion-icon (click)="incrementQty(item)" class="add-item-button-right" name="add-outline">
+                  </ion-icon>
+                </div>
+
+              </div>
+            </ion-label>
+          </ion-item>
+        </ion-list>
+      </div>
     </div>
   </div>
+
+  <br><br>
 </ion-content>

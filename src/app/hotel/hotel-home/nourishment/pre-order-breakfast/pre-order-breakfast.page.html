@@ -52,14 +52,14 @@
   <ion-row style="padding: 0px 9px; margin-bottom: 10px;">
     <ion-col size="12">
       <ion-thumbnail>
-        <img src="../../../../../assets/breakfast-banner.jpg" alt="">
+        <img src="../../../../../assets/pre-order-pex.jpg" alt="">
       </ion-thumbnail>
     </ion-col>
   </ion-row>
 
   <div class="nourishment-section">
-    <span class="header-txt" style="font-size: 16px; font-weight: 500;">BREAKFAST</span> <br>
-    <span style="font-size: 12px;">6.00am - 11.00am</span> <br>
+    <span class="header-txt" style="font-size: 16px; font-weight: 500;">PRE ORDER BREAKFAST</span> <br>
+    <!-- <span style="font-size: 12px;">6.00am - 11.00am</span> <br> -->
     <br>
     <div class="nourishment-divider"></div>
     <br> <br>
@@ -74,10 +74,12 @@
               <div class="details">
                 <h2
                   style="font-size: 13px; display: flex; align-items: center; white-space: pre-wrap;">
+                  <img *ngIf="item.type === 'veg'" src="../../../../../assets/icon/veg.png" width="18px" alt="">
+                  <img *ngIf="item.type === 'non-veg'" src="../../../../../assets/icon/non-veg.png" width="18px" alt="">
                   {{item.name}}
                 </h2>
                 <h3 class="price">&#x20b9;{{item.price}}.00</h3>
-                <p>{{item.ingredients}}</p>
+                <p>{{item.details}}</p>
               </div>
 
               <div class="add-action">

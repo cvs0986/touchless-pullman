@@ -93,6 +93,11 @@ const routes: Routes = [
                 loadChildren:
                   './hotel-home/nourishment/pre-order-breakfast/pre-order-breakfast.module#PreOrderBreakfastPageModule',
               },
+              {
+                path: 'late-night-dining',
+                loadChildren:
+                  './hotel-home/nourishment/late-night-dining/late-night-dining.module#LateNightDiningPageModule',
+              },
             ],
           },
           {
@@ -100,7 +105,7 @@ const routes: Routes = [
             children: [
               {path: '', loadChildren: './hotel-home/spa/spa.module#SpaPageModule'},
               {
-                path: 'spa-explore',
+                path: 'salon',
                 loadChildren: './hotel-home/spa/spa-explore/spa-explore.module#SpaExplorePageModule'
               },
               {
@@ -131,13 +136,31 @@ const routes: Routes = [
               { path: '', loadChildren: './hotel-home/laundry-service/laundry-service.module#LaundryServicePageModule'},
               { path: 'irs-planet21', loadChildren: './hotel-home/laundry-service/irs-tv/irs-tv.module#IrsTvPageModule'},
               { path: 'irs-pillow', loadChildren: './hotel-home/laundry-service/irs-pillow/irs-pillow.module#IrsPillowPageModule'},
-              { path: 'irs-laundry', loadChildren: './hotel-home/laundry-service/irs-laundry/irs-laundry.module#IrsLaundryPageModule'}
+              { path: 'irs-laundry', loadChildren: './hotel-home/laundry-service/irs-laundry/irs-laundry.module#IrsLaundryPageModule'},
+              { path: 'irs-fitness', loadChildren: './hotel-home/laundry-service/irs-in-room-fitness/irs-in-room-fitness.module#IrsInRoomFitnessPageModule'},
+              { path: 'irs-essentials', loadChildren: './hotel-home/laundry-service/irs-in-room-essentials/irs-in-room-essentials.module#IrsInRoomEssentialsPageModule'},
+              { path: 'irs-refreshment', loadChildren: './hotel-home/laundry-service/irs-in-room-refreshment/irs-in-room-refreshment.module#IrsInRoomRefreshmentPageModule'},
+              { path: 'irs-safe', loadChildren: './hotel-home/laundry-service/safe-instructions/safe-instructions.module#SafeInstructionsPageModule'},
+              { path: 'irs-remote', loadChildren: './hotel-home/laundry-service/remote-instructions/remote-instructions.module#RemoteInstructionsPageModule'},
+              { path: 'active-breakfast', loadChildren: './hotel-home/laundry-service/active-breakfast/active-breakfast.module#ActiveBreakfastPageModule'}
             ]
+          },
+          {
+            path: 'meet-play',
+            loadChildren: './hotel-home/meet-play/meet-play.module#MeetPlayPageModule',
+          },
+          {
+            path: 'explore-dining',
+            loadChildren: './hotel-home/explore-dining-venues/explore-dining-venues.module#ExploreDiningVenuesPageModule',
+          },
+          {
+            path: 'accor-live',
+            loadChildren: './hotel-home/accor-live/accor-live.module#AccorLivePageModule',
           },
         ],
       },
       {
-        path: 'covid-info',
+        path: 'promotion',
         loadChildren: './covid-info/covid-info.module#CovidInfoPageModule'
       }
     ],

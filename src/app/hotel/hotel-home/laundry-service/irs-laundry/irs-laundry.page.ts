@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { BookLaundryComponent } from '../book-laundry/book-laundry.component';
-import { ModalController, Platform } from '@ionic/angular';
+import { ModalController, Platform, AlertController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { HotelApiService } from 'src/app/hotel/hotel-api.service';
+import { LaundryTncComponent } from './laundry-tnc/laundry-tnc.component';
 
 @Component({
   selector: 'app-irs-laundry',
@@ -86,7 +87,8 @@ export class IrsLaundryPage implements OnInit {
     private modalCtrl: ModalController,
     private router: Router,
     private platform: Platform,
-    private hotelApi: HotelApiService
+    private hotelApi: HotelApiService,
+    private alertCtrl: AlertController
   ) { }
 
   ngOnInit() {
@@ -103,15 +105,47 @@ export class IrsLaundryPage implements OnInit {
     );
   }
 
-  bookLaundry() {
+  laundryTnc() {
     this.modalCtrl.create({
-      component: BookLaundryComponent,
+      component: LaundryTncComponent,
+      cssClass: 'laundry-tnc'
     }).then(modalEl => {
       modalEl.present();
     });
   }
 
   addItemInitial(menuItem) {
+    if (menuItem.is_express_delivery === 1) {
+      this.alertCtrl.create({
+        header: 'Express service available!',
+        subHeader: 'Do you want to proceed with express service?',
+        message: 'Returned within three hours at 100% extra charges',
+        backdropDismiss: false,
+        buttons: [
+          {
+            text: 'No',
+            role: 'cancel',
+            handler: () => {
+              menuItem.count += 1;
+              this.itemQty += 1;
+            }
+          },
+          {
+            text: 'Yes',
+            handler: () => {
+              menuItem.price = menuItem.express_delivery_price;
+              menuItem.expressSelected = true;
+              console.log(menuItem);
+              menuItem.count += 1;
+              this.itemQty += 1;
+            }
+          }
+        ]
+      }).then(alertEl => {
+        alertEl.present();
+      });
+      return false;
+    }
     menuItem.count += 1;
     this.itemQty += 1;
     console.log(menuItem.count + 1, menuItem, this.itemQty);
@@ -129,6 +163,8 @@ export class IrsLaundryPage implements OnInit {
     if (item.count - 1 < 1) {
       item.count = 0;
       this.itemQty -= 1;
+      item.expressSelected = false;
+      item.price = item.price / 2;
       console.log(item.count, item, this.itemQty);
     } else {
       item.count -= 1;

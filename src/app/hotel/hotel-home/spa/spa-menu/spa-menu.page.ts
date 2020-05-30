@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { SpaCartComponent } from '../spa-cart/spa-cart.component';
+import { HotelApiService } from 'src/app/hotel/hotel-api.service';
 
 @Component({
   selector: 'app-spa-menu',
@@ -8,6 +9,8 @@ import { SpaCartComponent } from '../spa-cart/spa-cart.component';
   styleUrls: ['./spa-menu.page.scss'],
 })
 export class SpaMenuPage implements OnInit {
+  spaMenuApi: any = [];
+
   spaMenu: any[] = [
     {
       category: 'SIGNATURE THERAPIES',
@@ -147,11 +150,25 @@ export class SpaMenuPage implements OnInit {
     },
   ];
 
-  constructor(private modalCtrl: ModalController) {}
+  constructor(
+    private modalCtrl: ModalController,
+    private hotelApi: HotelApiService
+  ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.hotelApi.getSpaMenus('N1loWW9Sc3JKbjJUMEZNdmpERGVrM3N6b3N5ZjN3aWZCTFlHRjlGZFFVZz0=').subscribe(
+      (resp) => {
+        console.log(resp);
+        this.spaMenuApi = resp.body.data;
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
 
   bookSpa(item) {
+    item.count = 1;
     this.modalCtrl
       .create({
         component: SpaCartComponent,

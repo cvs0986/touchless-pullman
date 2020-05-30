@@ -8,6 +8,8 @@ export class HotelApiService {
   url = 'https://vserve-api.valet2you.in/api/v1/ird/guest/';
   minibarUrl = 'https://vserve-api.valet2you.in/api/v1/ird/mini-bar/guest/';
   laundryUrl = 'https://vserve-api.valet2you.in/api/v1/wash/laundry/guest/';
+  spaUrl = 'https://vserve-api.valet2you.in/api/v1/sanitarium/spa/guest/';
+  requestServiceUrl = 'https://vserve-api.valet2you.in/api/v1/connect/guest/';
 
   constructor(
     private http: HttpClient
@@ -43,6 +45,30 @@ export class HotelApiService {
       Accept: 'application/json',
     });
     return this.http.get<any>(this.laundryUrl + 'menu/' + id, {
+      observe: 'response',
+      responseType: 'json',
+      headers,
+    });
+  }
+
+  getSpaMenus(id) {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
+    });
+    return this.http.get<any>(this.spaUrl + 'menu/' + id, {
+      observe: 'response',
+      responseType: 'json',
+      headers,
+    });
+  }
+
+  getRequestServicesMenus(id) {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
+    });
+    return this.http.get<any>(this.requestServiceUrl + 'menu/' + id, {
       observe: 'response',
       responseType: 'json',
       headers,

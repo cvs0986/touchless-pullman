@@ -14,7 +14,7 @@ export class NourishmentPage implements OnInit {
   }
 
   nourishmentNavigation(e) {
-    if (e === 'guide') {
+    if (e === 'breakfast') {
       this.router.navigateByUrl('/hotel/tabs/hotel-home/nourishment/nourishment-guide');
     }
     if (e === 'ird-menu') {
@@ -25,6 +25,9 @@ export class NourishmentPage implements OnInit {
     }
     if (e === 'pre-order') {
       this.router.navigateByUrl('/hotel/tabs/hotel-home/nourishment/pre-order-breakfast');
+    }
+    if (e === 'late-night') {
+      this.router.navigateByUrl('/hotel/tabs/hotel-home/nourishment/late-night-dining');
     }
   }
 

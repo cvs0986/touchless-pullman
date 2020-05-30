@@ -1,0 +1,65 @@
+<ion-toolbar>
+  <ion-title>
+    <img src="../../../../../assets/Logo_Grey.png" alt="">
+  </ion-title>
+</ion-toolbar>
+
+<ion-content>
+  <ion-fab slot="fixed" vertical="bottom">
+    <ion-row>
+      <ion-col size="4">
+        <ion-button (click)="dismissCart()" color="light" mode="md" expand="block" style="text-transform: capitalize;">
+          <ion-icon size="small" slot="start" name="chevron-back-outline"></ion-icon>
+          Back
+        </ion-button>
+      </ion-col>
+      <ion-col size="8">
+        <ion-button (click)="placedOrder()" color="success" mode="md" expand="block" style="text-transform: capitalize;">
+          <ion-icon size="small" slot="end" name="caret-forward-outline"></ion-icon>
+          Place Request
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-fab>
+  
+  <h3 class="ion-padding-horizontal">In Room Essentials</h3>
+  
+  <div class="toggleMenus">
+    <ion-list lines="none" mode="md" style="background: transparent;" *ngFor="let item of cartItems">
+      <ion-item style="margin-top: -15px;" mode="md" style="background: transparent;" *ngIf="item.count !== 0">
+        <ion-label>
+          <div class="details">
+            <h2 style="font-size: 13px; font-weight: 600; display: flex; align-items: center; white-space: pre-wrap;">
+              {{item.name}}
+            </h2>
+            <h3 class="price">&#x20b9;{{item.price}}</h3>
+          </div>
+  
+          <div class="add-action">
+            <div class="add-item-button" *ngIf="item.count !== 0">
+              <ion-icon (click)="decrementQty(item)" class="add-item-button-left" name="remove-outline"></ion-icon>
+              {{item.count}} <ion-icon (click)="incrementQty(item)" class="add-item-button-right" name="add-outline">
+              </ion-icon>
+            </div>
+          </div>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
+  
+  
+  <br><br>
+  <div class="guest-details">
+    <div class="spa-divider"></div>
+    <br>
+    <ion-item lines="none">
+      <ion-label>Room Number</ion-label>
+      <ion-input [(ngModel)]="room" style="border-bottom: 1px solid #cecbcb; margin-left: 120px; text-align: right;"
+        type="number" clearInput="true"></ion-input>
+    </ion-item>
+    <br>
+    <div class="spa-divider"></div>
+  </div>
+  
+  <br><br><br><br>
+</ion-content>

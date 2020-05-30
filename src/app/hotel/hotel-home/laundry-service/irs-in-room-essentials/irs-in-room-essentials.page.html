@@ -1,0 +1,63 @@
+<ion-toolbar>
+  <ion-title>
+    <img src="../../../../../assets/Logo_Grey.png" alt="">
+  </ion-title>
+  <ion-buttons slot="end">
+    <ion-button>
+      <ion-icon slot="icon-only" name="person-circle-outline"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+</ion-toolbar>
+
+<ion-content>
+  <ion-buttons>
+    <ion-back-button defaultHref="/hotel/tabs/hotel-home/irs"></ion-back-button>
+  </ion-buttons>
+
+  <br>
+  <h3 class="ion-padding-horizontal">In Room Essentials</h3>
+
+  <ion-fab slot="fixed" vertical="bottom" *ngIf="itemQty !== 0">
+    <ion-button (click)="reviewOrder()" color="success" mode="md" expand="block" style="text-transform: capitalize;">
+      <ion-icon size="small" slot="end" name="caret-forward-outline"></ion-icon>
+      <small style="margin-right: 50px; font-weight: 500;">
+        {{itemQty}}
+        <span style="margin-left: 3px;">
+          <span *ngIf="itemQty === 1">ITEM</span>
+          <span *ngIf="itemQty > 1">ITEMS</span>
+        </span>
+      </small>
+      Review request
+    </ion-button>
+  </ion-fab>
+
+  <div class="toggleMenus">
+    <ion-list lines="none" mode="md" style="background: transparent;"
+      *ngFor="let item of laundryItemsApi">
+      <ion-item style="margin-top: -15px;" mode="md" style="background: transparent;">
+        <ion-label>
+          <div class="details">
+            <p style="font-size: 15px; font-weight: 600; display: flex; align-items: center; white-space: pre-wrap;">
+              {{item.name}}
+            </p>
+            <h3 class="price">&#x20b9;{{item.price}}</h3>
+          </div>
+  
+          <div class="add-action">
+            <ion-button (click)="addItemInitial(item)" *ngIf="item.count === 0" fill="outline" size="small" color="medium"
+              style="text-transform: capitalize; font-weight: 400;">
+              Add <ion-icon style="margin-right: 5px;" slot="icon-only" size="small" name="add-outline"></ion-icon>
+            </ion-button>
+  
+            <div class="add-item-button" *ngIf="item.count !== 0">
+              <ion-icon (click)="decrementQty(item)" class="add-item-button-left" name="remove-outline"></ion-icon>
+              {{item.count}} <ion-icon (click)="incrementQty(item)" class="add-item-button-right" name="add-outline">
+              </ion-icon>
+            </div>
+  
+          </div>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>

@@ -1,0 +1,66 @@
+<ion-toolbar>
+  <ion-title>
+    <img src="../../../../../../assets/Logo_Grey.png" alt="">
+  </ion-title>
+  <ion-buttons slot="end">
+    <ion-button (click)="dismissCart()">
+      <ion-icon slot="icon-only" name="close-outline"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+</ion-toolbar>
+
+<ion-content>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-button (click)="placedOrder()" size="small" shape="round">Continue</ion-button>
+  </ion-fab>
+
+
+  <h3 class="ion-padding-horizontal">Package Selected</h3>
+  <br>
+  <div class="package-info ion-padding-horizontal">
+    <span>{{spaItem.name}}</span><br>
+    <span style="font-weight: 500;">&#x20B9;{{spaItem.price}}</span>
+  </div>
+  <br><br>
+  <div class="guest-details">
+    <div class="spa-divider"></div>
+    <br>
+    <ion-item lines="none" (ionChange)="pickupNowChange(pickupNow)">
+      <ion-label>Request service now</ion-label>
+      <ion-checkbox mode="md" slot="start" [(ngModel)]="pickupNow"></ion-checkbox>
+    </ion-item>
+    <ion-text class="ion-padding-horizontal">OR</ion-text>
+    <br>
+    <ion-item lines="none" [disabled]="isDisabled">
+      <ion-label>Select Date</ion-label>
+      <ion-datetime [(ngModel)]="date" value="" pickerFormat="DD MMMM YYYY" max="2030-12-31" placeholder="Select Date">
+      </ion-datetime>
+    </ion-item>
+    <ion-item lines="none" [disabled]="isDisabled">
+      <ion-label>Select Time</ion-label>
+      <ion-datetime [(ngModel)]="time" display-format="h:mm A" picker-format="h:mm A" placeholder="Select Time">
+      </ion-datetime>
+    </ion-item>
+    <ion-item lines="none">
+      <ion-label>Room Number</ion-label>
+      <ion-input [(ngModel)]="room" style="border-bottom: 1px solid #cecbcb; margin-left: 120px; text-align: right;"
+        type="number" clearInput="true"></ion-input>
+    </ion-item>
+    <ion-item lines="none">
+      <ion-label>
+        <div class="details">
+          <p style="font-size: 15px;">Number Of Guests</p>
+        </div>
+
+        <div class="add-action">
+          <div class="add-item-button">
+            <ion-icon (click)="decrementQty()" class="add-item-button-left" name="remove-outline"></ion-icon>
+            {{guestQty}} <ion-icon (click)="incrementQty()" class="add-item-button-right" name="add-outline"></ion-icon>
+          </div>
+        </div>
+      </ion-label>
+    </ion-item>
+    <br>
+    <div class="spa-divider"></div>
+  </div>
+</ion-content>

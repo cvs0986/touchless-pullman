@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { IrsLaundryPageRoutingModule } from './irs-laundry-routing.module';
 
 import { IrsLaundryPage } from './irs-laundry.page';
+import { LaundryTncComponent } from './laundry-tnc/laundry-tnc.component';
 
 @NgModule({
   imports: [
@@ -15,6 +16,7 @@ import { IrsLaundryPage } from './irs-laundry.page';
     IonicModule,
     IrsLaundryPageRoutingModule
   ],
-  declarations: [IrsLaundryPage]
+  declarations: [IrsLaundryPage, LaundryTncComponent],
+  entryComponents: [LaundryTncComponent]
 })
 export class IrsLaundryPageModule {}

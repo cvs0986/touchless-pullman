@@ -32,25 +32,19 @@
   </ion-row>
   <br>
 
-  <div class="spa-section ion-padding-horizontal" *ngFor="let spa of spaMenu">
-    <h5>{{spa.category}}</h5>
-    <ion-row>
-      <ion-col size="12">
-        <ion-thumbnail>
-          <img src="{{spa.img}}" alt="">
-        </ion-thumbnail>
-      </ion-col>
-    </ion-row>
-    <!-- <div class="spa-divider"></div> -->
-    <!-- <br> -->
-    <div class="spa-items" *ngFor="let item of spa.items">
+  <div class="spa-section ion-padding-horizontal" *ngFor="let spa of spaMenuApi.categories">
+    <h5>{{spa.name}}</h5>
+    <div class="spa-divider"></div>
+    <br>
+    <div class="spa-items" *ngFor="let item of spa.without_sub_category_items">
       <div class="spa-item-details">
-        <span style="color: #3E3D40; font-size: 18px;">{{item.name}}</span> <br>
-        <span style="font-weight: 500; color: #636362; font-size: 16px;">{{item.time}}</span> <br>
-        <span style="font-weight: 600; font-size: 14px;">&#x20B9;{{item.price}}.00</span> <br>
-        <span style="font-weight: 500; color: #636362; font-size: 14px;">{{item.details}}</span>
+        <span style="font-weight: 500; color: #636362; font-size: 15px;">{{item.name}}</span> <br>
+        <!-- <span style="font-weight: 500; color: #636362; font-size: 14px;">{{item.time}}</span> <br> -->
+        <span style="font-weight: 600; font-size: 14px;">&#x20B9;{{item.price}}</span> <br>
+        <span style="font-size: 13px; color: #636362;">{{item.description}}</span>
       </div>
-      <ion-button style="margin-top: 10px;" fill="outline" color="primary" (click)="bookSpa(item)" size="small">BOOK</ion-button>
+      <ion-button style="margin-top: 10px;" fill="outline" color="primary" (click)="bookSpa(item)" size="small">BOOK
+      </ion-button>
     </div>
   </div>
 </ion-content>

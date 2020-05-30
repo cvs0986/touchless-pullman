@@ -10,126 +10,96 @@
 </ion-toolbar>
 
 <ion-content>
-  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-    <ion-button (click)="goTo($event)" color="primary" shape="round" size="small">
-      GO TO
+  <!-- <ion-fab vertical="bottom" horizontal="start" slot="fixed" *ngIf="isIos === true">
+    <ion-button shape="round" fill="solid" mode="md" size="small" color="primary"> Menu
+    </ion-button>
+  </ion-fab> -->
+  
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" *ngIf="isIos === true && itemQty !== 0">
+    <ion-button (click)="reviewOrder()" fill="solid" mode="md" size="small" shape="round" color="success"> View Cart
+      <ion-icon slot="end" name="chevron-forward-outline"></ion-icon>
     </ion-button>
   </ion-fab>
+
+  <div class="bottom-buttons" *ngIf="isIos === false">
+    <!-- <ion-button fill="solid" shape="round" size="small" color="primary"
+      style="text-transform: capitalize; font-weight: 500; margin-bottom: 10px; margin-right: 16px;">
+      MENU <ion-icon style="margin-right: 5px;" slot="icon-only" size="small" name="menu-outline"></ion-icon>
+    </ion-button> -->
+
+    <div class="place-order-btn ion-padding-horizontal" *ngIf="itemQty !== 0 && isIos === false">
+      <ion-button (click)="reviewOrder()" color="success" mode="md" expand="block" style="text-transform: capitalize;">
+        <ion-icon size="small" slot="end" name="caret-forward-outline"></ion-icon>
+        <small style="margin-right: 50px; font-weight: 500;">
+          {{itemQty}}
+          <span style="margin-left: 3px;">
+            <span *ngIf="itemQty === 1">ITEM</span>
+            <span *ngIf="itemQty > 1">ITEMS</span>
+          </span>
+        </small>
+        View Cart
+      </ion-button>
+    </div>
+  </div>
+
+
 
   <ion-buttons>
     <ion-back-button defaultHref="/hotel/tabs/hotel-home/nourishment"></ion-back-button>
   </ion-buttons>
+
+  <ion-row style="padding: 0px 9px; margin-bottom: 10px;">
+    <ion-col size="12">
+      <ion-thumbnail>
+        <img src="../../../../../assets/breakfast-pex.jpg" alt="">
+      </ion-thumbnail>
+    </ion-col>
+  </ion-row>
+
   <div class="nourishment-section">
-    <span class="header-txt" style="font-size: 16px; font-weight: 500;">YOUR GUIDE TO NOURISHMENT</span> <br>
-    <span style="font-size: 12px;">Enjoy this introduction to essential vitamins, minerals, fats and
-    fibers, as well as a variety of nutritious ingredients to enjoy and savor.</span>
-    <br> <br>
+    <span class="header-txt" style="font-size: 16px; font-weight: 500;">BREAKFAST</span> <br>
+    <span style="font-size: 12px;">6.00am - 11.00am</span> <br>
+    <br>
     <div class="nourishment-divider"></div>
     <br> <br>
-    <div class="nourishment-el">
+    <div class="nourishment-el" *ngFor="let menu of menuItems">
       <div class="el-category">
-        <p><span>VITAMINS</span></p>
+        <p><span>{{menu.categoryName}}</span></p>
       </div>
-      <div class="el-description">
-        <p>Best sourced through the foods we eat, vitamins are
-          the building blocks of a healthy lifestyle.</p>
-        
-        <div class="el-name-gred">
-          <h6>Foods rich in Vitamin B</h6>
-          <span>MUSHROOMS | MILK | WHOLE GRAINS PISTACHIO NUTS | SUNFLOWER SEEDS</span>
-        </div>
-        <div class="el-name-gred">
-          <h6>Foods rich in Vitamin C</h6>
-          <span>CITRUS | KIWI | STRAWBERRIES MANGOES | PAPAYA BROCCOLI DARK | LEAFY VEGETABLES</span>
-        </div>
-        <div class="el-name-gred">
-          <h6>Foods rich in Vitamins A & D</h6>
-          <span>MILK | FISH | EGGS</span>
-        </div>
-        <div class="el-name-gred">
-          <h6>Foods rich in Vitamins E & K</h6>
-          <span>WHEAT GERM | SUNFLOWER SEEDS | SOME NUTS
-          PEANUT BUTTER | DARK GREEN LEAFY VEGETABLES
-          KALE | SPINACH</span>
-        </div>
+      <div class="toggleMenus">
+        <ion-list lines="none" mode="md" style="background: transparent;" *ngFor="let item of menu.items">
+          <ion-item style="margin-top: -15px;" mode="md" style="background: transparent;">
+            <ion-label>
+              <div class="details">
+                <h2
+                  style="font-size: 13px; display: flex; align-items: center; white-space: pre-wrap;">
+                  <img *ngIf="item.type === 'veg'" src="../../../../../assets/icon/veg.png" width="18px" alt="">
+                  <img *ngIf="item.type === 'non-veg'" src="../../../../../assets/icon/non-veg.png" width="18px" alt="">
+                  {{item.name}}
+                </h2>
+                <h3 class="price">&#x20b9;{{item.price}}.00</h3>
+                <p>{{item.details}}</p>
+              </div>
+
+              <div class="add-action">
+                <ion-button (click)="addItemInitial(item)" *ngIf="item.qty === 0" fill="outline" size="small"
+                  color="medium" style="text-transform: capitalize; font-weight: 400;">
+                  Add <ion-icon style="margin-right: 5px;" slot="icon-only" size="small" name="add-outline"></ion-icon>
+                </ion-button>
+
+                <div class="add-item-button" *ngIf="item.qty !== 0">
+                  <ion-icon (click)="decrementQty(item)" class="add-item-button-left" name="remove-outline"></ion-icon>
+                  {{item.qty}} <ion-icon (click)="incrementQty(item)" class="add-item-button-right" name="add-outline">
+                  </ion-icon>
+                </div>
+
+              </div>
+            </ion-label>
+          </ion-item>
+        </ion-list>
       </div>
     </div>
-
-    <br><br>
-
-    <div class="nourishment-el">
-      <div class="el-category">
-        <p><span>MINERALS</span></p>
-      </div>
-      <div class="el-description">
-        <p>Minerals keep your bones strong and your body
-        balanced.</p>
-    
-        <div class="el-name-gred">
-          <h6>Calcium <span style="font-weight: 400;">is important for strong, healthy bones and
-          teeth.</span></h6>
-          <span>KALE | YOGURT | BROCCOLI | WATERCRESS CHEESE
-          BOK CHOY | OKRA | ALMONDS</span>
-        </div>
-        <div class="el-name-gred">
-          <h6>Potassium <span style="font-weight: 400;">is an electrolyte that regulates the flow
-          of nutrients going in and out of cells.</span></h6>
-          <span>POTATOES | SUN-DRIED TOMATOES KIDNEY BEANS
-          DRIED FRUITS | BANANA AVOCADOS | FIS|</span>
-        </div>
-        <div class="el-name-gred">
-          <h6>Iron <span style="font-weight: 400;">is an essential element for blood production.</span></h6>
-          <span>POTATOES | SUN-DRIED TOMATOES KIDNEY BEANS
-          DRIED FRUITS | BANANA AVOCADOS | FISH</span>
-        </div>
-        <div class="el-name-gred">
-          <h6>Antioxidants <span style="font-weight: 400;">are beneficial in preventing diseases
-          by prohibiting the oxidation of harmful molecules
-          in the body.</span></h6>
-          <span>EXTRA-VIRGIN OLIVE OIL | GOJI BERRIES WILD BLUEBERRIES
-          DARK CHOCOLATE PECANS | ARTICHOKES
-          KIDNEY BEANS CRANBERRIES | CLOVE
-          CINNAMON | OREGANO | TURMERIC | COCOA
-          CUMIN | PARSLEY | BASIL | THYME | WILD HONEY</span>
-        </div>
-      </div>
-    </div>
-
-    <br><br>
-
-    <div class="nourishment-el">
-      <div class="el-category">
-        <p><span>HEALTHY FATS & FIBER</span></p>
-      </div>
-      <div class="el-description">
-        <p>Healthy fats and fiber stabilize blood sugar and
-        cholesterol levels.</p>
-    
-        <div class="el-name-gred">
-          <h6>Fiber <span style="font-weight: 400;">slows the rate that sugar is absorbed into the
-          bloodstream, which keeps your blood glucose levels
-          from rising too fast.</span></h6>
-          <span>PEAS | LENTILS | BEANS | ARTICHOKES BROCCOLI
-          BRUSSELS SPROUTS | AVOCADOS | OATS & WHOLE GRAINS</span>
-        </div>
-        <div class="el-name-gred">
-          <h6>Unsaturated fats <span style="font-weight: 400;">ncluding poly - and
-          mono-unsaturated fats, have a positive effect on
-          cholesterol levels.</span></h6>
-          <span>OLIVE OIL | WALNUTS | PINE NUTS | PECANS
-          AVOCADOS | PUMPKIN SEEDS | SPIRULINA</span>
-        </div>
-        <div class="el-name-gred">
-          <h6>Omega-3 <span style="font-weight: 400;">atty acids are needed for many
-          functions, from building healthy cells to
-          maintaining brain and nerve function.</span></h6>
-          <span>FLAXSEED OIL | FISH OIL | NUTS & SEEDS | CHIA SEEDS
-          SALMON & COLD WATER | FISH SOYBEANS | AVOCADOS
-          COOKED SPINACH
-          </span>
-        </div>
-      </div>
-    </div>
-
   </div>
+
+  <br><br>
 </ion-content>

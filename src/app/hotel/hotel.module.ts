@@ -8,6 +8,8 @@ import { HotelPageRoutingModule } from './hotel-routing.module';
 
 import { HotelPage } from './hotel.page';
 import { CartComponent } from './cart/cart.component';
+import { MinibarCartReviewComponent } from './hotel-home/nourishment/refreshment-menu/minibar-cart-review/minibar-cart-review.component';
+import { StaticCartComponent } from './static-cart/static-cart.component';
 
 @NgModule({
   imports: [
@@ -16,7 +18,7 @@ import { CartComponent } from './cart/cart.component';
     IonicModule,
     HotelPageRoutingModule
   ],
-  declarations: [HotelPage, CartComponent],
-  entryComponents: [CartComponent]
+  declarations: [HotelPage, CartComponent, MinibarCartReviewComponent, StaticCartComponent],
+  entryComponents: [CartComponent, MinibarCartReviewComponent, StaticCartComponent]
 })
 export class HotelPageModule {}

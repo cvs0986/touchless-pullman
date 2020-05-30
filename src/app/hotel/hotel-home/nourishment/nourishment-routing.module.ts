@@ -23,6 +23,10 @@ const routes: Routes = [
   {
     path: 'pre-order-breakfast',
     loadChildren: () => import('./pre-order-breakfast/pre-order-breakfast.module').then( m => m.PreOrderBreakfastPageModule)
+  },
+  {
+    path: 'late-night-dining',
+    loadChildren: () => import('./late-night-dining/late-night-dining.module').then( m => m.LateNightDiningPageModule)
   }
 ];
 

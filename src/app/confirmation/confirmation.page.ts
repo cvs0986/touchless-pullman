@@ -54,7 +54,7 @@ export class ConfirmationPage implements OnInit {
     this.toastCtrl
       .create({
         // tslint:disable-next-line: max-line-length
-        message: 'As a safety measure to protect our guests from COVID-19 exposure, we won\'t be taking your signature on a physical bill and will present it during checkout only.',
+        message: 'This is your consent to post the charges on your room, the same will be settled during your check-out.',
         position: 'middle',
         color: 'warning',
         keyboardClose: true,

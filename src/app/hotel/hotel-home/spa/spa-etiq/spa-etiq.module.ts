@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { SpaEtiqPageRoutingModule } from './spa-etiq-routing.module';
 
 import { SpaEtiqPage } from './spa-etiq.page';
+import { KidsCartComponent } from './kids-cart/kids-cart.component';
 
 @NgModule({
   imports: [
@@ -15,6 +16,7 @@ import { SpaEtiqPage } from './spa-etiq.page';
     IonicModule,
     SpaEtiqPageRoutingModule
   ],
-  declarations: [SpaEtiqPage]
+  declarations: [SpaEtiqPage, KidsCartComponent],
+  entryComponents: [KidsCartComponent]
 })
 export class SpaEtiqPageModule {}
